@@ -15,13 +15,15 @@ public class TodoNewApplication {
         TaskManager taskManager = new TaskManager(scanner);
 
         while (true) {
+
+
             System.out.println("Выберите действие:");
             System.out.println("1. Авторизация пользователя");
             System.out.println("2. Регистрация пользователя");
             System.out.println("0. Выход");
 
             int loginOrRegister = scanner.nextInt();
-            scanner.nextLine(); // очистим буфер после ввода числа
+            scanner.nextLine();
 
             switch (loginOrRegister) {
                 case 1:
@@ -75,39 +77,44 @@ public class TodoNewApplication {
 
     private static void performActions(Scanner scanner, TaskManager taskManager, String loggedInUser) {
         while (true) {
-            System.out.println("Выберите действие:");
-            System.out.println("3. Просмотр задач");
-            System.out.println("4. Создание задачи");
-            System.out.println("5. Удаление задачи");
-            System.out.println("6. Редактирование задачи");
-            System.out.println("7. Измененить статус задачи на [Выполнено]");
-            System.out.println("0. Выход");
+            if (loggedInUser == null) {
+                System.out.println("Требуется авторизация.");
+                loggedInUser = loginUser(taskManager, scanner);
+            }else {
+                System.out.println("Выберите действие:");
+                System.out.println("3. Просмотр задач");
+                System.out.println("4. Создание задачи");
+                System.out.println("5. Удаление задачи");
+                System.out.println("6. Редактирование задачи");
+                System.out.println("7. Измененить статус задачи на [Выполнено]");
+                System.out.println("0. Выход");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+                int choice = scanner.nextInt();
+                scanner.nextLine();
 
-            switch (choice) {
-                case 3:
-                    viewTasks(taskManager, loggedInUser);
-                    break;
-                case 4:
-                    createTaskFromConsole(taskManager, scanner, loggedInUser);
-                    break;
-                case 5:
-                    deleteTaskFromConsole(taskManager, scanner, loggedInUser);
-                    break;
-                case 6:
-                    editTaskFromConsole(taskManager, scanner, loggedInUser);
-                    break;
-                case 7:
-                    changeTaskStatusFromConsole(taskManager, scanner, loggedInUser);
-                    break;
-                case 0:
-                    taskManager.saveTasks(loggedInUser);
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("Неверный ввод. Пожалуйста, выберите корректное действие.");
+                switch (choice) {
+                    case 3:
+                        viewTasks(taskManager, loggedInUser);
+                        break;
+                    case 4:
+                        createTaskFromConsole(taskManager, scanner, loggedInUser);
+                        break;
+                    case 5:
+                        deleteTaskFromConsole(taskManager, scanner, loggedInUser);
+                        break;
+                    case 6:
+                        editTaskFromConsole(taskManager, scanner, loggedInUser);
+                        break;
+                    case 7:
+                        changeTaskStatusFromConsole(taskManager, scanner, loggedInUser);
+                        break;
+                    case 0:
+                        taskManager.saveTasks(loggedInUser);
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("Неверный ввод. Пожалуйста, выберите корректное действие.");
+                }
             }
         }
     }

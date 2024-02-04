@@ -21,6 +21,7 @@ public class TaskManager {
     private List<Task> tasks;
     private List<User> users;
     private Scanner scanner;
+
     public TaskManager(Scanner scanner) {
         this.tasks = new ArrayList<>();
         this.users = new ArrayList<>();
@@ -29,7 +30,7 @@ public class TaskManager {
     }
 
     private void loadUsers() {
-        try (FileReader reader = new FileReader(USER_FILE_PATH)){
+        try (FileReader reader = new FileReader(USER_FILE_PATH)) {
             JSONParser parser = new JSONParser();
             JSONArray jsonArray = (JSONArray) parser.parse(reader);
 
@@ -66,7 +67,7 @@ public class TaskManager {
     public boolean loginUser(String username, String password) {
         for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                System.out.println("Авторизация успешна для пользователя: " + username);
+                System.out.println("Пользователь: " + username);
                 return true;
             }
         }
@@ -170,6 +171,7 @@ public class TaskManager {
             e.printStackTrace();
         }
     }
+
     public Task getTaskById(long taskId, String username) {
         for (Task task : tasks) {
             if (task.getId() == taskId && task.getUsername().equals(username)) {
@@ -178,6 +180,7 @@ public class TaskManager {
         }
         return null;
     }
+
     public void changeTaskStatus(long idToChangeStatus, String username) {
         try {
             for (Task task : tasks) {
