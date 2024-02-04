@@ -80,6 +80,10 @@ public class TodoNewApplication {
             if (loggedInUser == null) {
                 System.out.println("Требуется авторизация.");
                 loggedInUser = loginUser(taskManager, scanner);
+
+                if (loggedInUser != null) {
+                    viewTasks(taskManager, loggedInUser);
+                }
             }else {
                 System.out.println("Выберите действие:");
                 System.out.println("3. Просмотр задач");

@@ -4,6 +4,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -76,7 +77,7 @@ public class TaskManager {
         return false;
     }
 
-    public void loadTasks(String username) {
+    public void loadTasks(String username) throws FileNotFoundException {
         try {
             FileReader reader = new FileReader(username + "_" + FILE_PATH);
             JSONParser parser = new JSONParser();
@@ -89,6 +90,9 @@ public class TaskManager {
                 }
             }
         } catch (IOException | ParseException e) {
+            if (e instanceof FileNotFoundException) {
+                throw (FileNotFoundException) e;
+            }
             e.printStackTrace();
         }
     }
@@ -118,6 +122,8 @@ public class TaskManager {
                     System.out.println(task);
                 }
             }
+        } catch (FileNotFoundException e) {
+            System.out.println("Задачи отсутствуют.");
         } catch (Exception e) {
             e.printStackTrace();
         }
