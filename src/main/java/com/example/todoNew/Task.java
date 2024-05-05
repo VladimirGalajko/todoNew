@@ -25,6 +25,7 @@ public class Task {
     }
 
     public static Task fromJsonObject(JSONObject jsonObject) {
+
         long id = (long) jsonObject.get("id");
         String name = (String) jsonObject.get("name");
         String description = (String) jsonObject.get("description");
@@ -34,9 +35,11 @@ public class Task {
         String username = (String) jsonObject.get("username");
 
         return new Task(id, name, description, status, dateStart, dateEnd, username);
+
     }
 
     public JSONObject toJsonObject() {
+
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("id", getId());
         jsonObject.put("name", getName());

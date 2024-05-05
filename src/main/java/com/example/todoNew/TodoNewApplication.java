@@ -2,11 +2,13 @@ package com.example.todoNew;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import java.util.Scanner;
 
 @SpringBootApplication
 public class TodoNewApplication {
     private static String loggedInUser;
+    private static boolean isTesting = false;
 
     public static void main(String[] args) {
         SpringApplication.run(TodoNewApplication.class, args);
@@ -20,6 +22,7 @@ public class TodoNewApplication {
             System.out.println("Выберите действие:");
             System.out.println("1. Авторизация пользователя");
             System.out.println("2. Регистрация пользователя");
+            System.out.println("3. Тестирование действий");
             System.out.println("0. Выход");
 
             int loginOrRegister = scanner.nextInt();
@@ -31,6 +34,9 @@ public class TodoNewApplication {
                     break;
                 case 2:
                     registerUser(taskManager, scanner);
+                    break;
+                case 3:
+                    performTesting(taskManager, scanner);
                     break;
                 case 0:
                     if (loggedInUser != null) {
@@ -50,12 +56,12 @@ public class TodoNewApplication {
     private static String loginUser(TaskManager taskManager, Scanner scanner) {
         String user = null;
         do {
-            System.out.print("Введите имя пользователя: ");
+            System.out.print("Введите имя пользователя(loginUser): ");
             String username = scanner.nextLine();
             System.out.print("Введите пароль: ");
             String password = scanner.nextLine();
 
-            if (taskManager.loginUser(username, password)) {
+            if (taskManager.loginUser(username, password) != null) {
                 System.out.println("Авторизация успешна!");
                 user = username;
                 break;
@@ -68,7 +74,7 @@ public class TodoNewApplication {
     }
 
     private static void registerUser(TaskManager taskManager, Scanner scanner) {
-        System.out.print("Введите имя пользователя: ");
+        System.out.print("Для регистрации введите имя пользователя: ");
         String username = scanner.nextLine();
         System.out.print("Введите пароль: ");
         String password = scanner.nextLine();
@@ -77,20 +83,21 @@ public class TodoNewApplication {
 
     private static void performActions(Scanner scanner, TaskManager taskManager, String loggedInUser) {
         while (true) {
-            if (loggedInUser == null) {
+            if (loggedInUser == null && !isTesting) {
                 System.out.println("Требуется авторизация.");
                 loggedInUser = loginUser(taskManager, scanner);
 
                 if (loggedInUser != null) {
                     viewTasks(taskManager, loggedInUser);
                 }
-            }else {
+            } else {
                 System.out.println("Выберите действие:");
                 System.out.println("3. Просмотр задач");
                 System.out.println("4. Создание задачи");
                 System.out.println("5. Удаление задачи");
                 System.out.println("6. Редактирование задачи");
                 System.out.println("7. Измененить статус задачи на [Выполнено]");
+                System.out.println("8. Тестирование действий");
                 System.out.println("0. Выход");
 
                 int choice = scanner.nextInt();
@@ -98,7 +105,7 @@ public class TodoNewApplication {
 
                 switch (choice) {
                     case 3:
-                        viewTasks(taskManager, loggedInUser);
+                        taskManager.viewTasks(loggedInUser);
                         break;
                     case 4:
                         createTaskFromConsole(taskManager, scanner, loggedInUser);
@@ -111,6 +118,9 @@ public class TodoNewApplication {
                         break;
                     case 7:
                         changeTaskStatusFromConsole(taskManager, scanner, loggedInUser);
+                        break;
+                    case 8:
+                        performActionsTesting(taskManager, scanner);
                         break;
                     case 0:
                         taskManager.saveTasks(loggedInUser);
@@ -194,6 +204,79 @@ public class TodoNewApplication {
         scanner.nextLine();
         return taskId;
     }
+
+    private static void performTesting(TaskManager taskManager, Scanner scanner) {
+
+        isTesting = true;
+        Logger logger = Logger.getInstance();
+
+        System.out.println("Старт тестирования (регистрация/авторизация)...");
+        logger.log("Старт тестирования (регистрация/авторизация)...");
+
+        User testUser = new User("testUser", "testPassword");
+
+        logger.log("Тестирование функции регистрации...");
+        taskManager.registerUser(testUser.getUsername(), testUser.getPassword());
+
+        logger.log("Тестирование функции авторизации...");
+
+        loggedInUser = taskManager.loginUser(testUser.getUsername(), testUser.getPassword());
+        if (loggedInUser != null) {
+            logger.log("Авторизация успешна для пользователя: " + loggedInUser);
+            // performActionsTesting(taskManager, scanner, loggedInUser);
+        } else {
+            logger.log("Ошибка авторизации для пользователя: " + testUser.getUsername());
+        }
+        System.out.println("Tестирование (регистрация/авторизация) завершено...детали в log.txt");
+        logger.log("Tестирование (регистрация/авторизация) завершено");
+        // logger.close();
+    }
+
+    private static void performActionsTesting(TaskManager taskManager, Scanner scanner) {
+        Logger logger = Logger.getInstance();
+
+        User testUser = new User("testUser", "testPassword");
+        loggedInUser = taskManager.loginUser(testUser.getUsername(), testUser.getPassword());
+
+        System.out.println("Старт тестирования других действи...");
+        logger.log("Тестируем (Просмотр задач)...");
+        taskManager.viewTasks(loggedInUser);
+
+        logger.log("Тестирование (Создание задачи) ...");
+        String taskName = "Test Task";
+        String taskDescription = "This is a test task.";
+        String taskStatus = "Pending";
+        long taskId = taskManager.createTask(taskName, taskDescription, taskStatus, loggedInUser);
+        logger.log("Запускаем (Просмотр задач) для проверки ...");
+        taskManager.viewTasks(loggedInUser);
+//      long taskId = 1714909480061L;
+//
+        if (taskId != -1) {
+//        if (taskId == 1714909480061L) {
+            logger.log("Тестируем (Редактирование задачи)...");
+            String newName = "Test Task editing";
+            String newTaskDescription = "This is a test task. editing";
+            String newTaskStatus = "Pending editing";
+            taskManager.editTask(taskId, newName, newTaskDescription, newTaskStatus, loggedInUser);
+            logger.log("Запускаем (Просмотр задач) для проверки ....");
+            taskManager.viewTasks(loggedInUser);
+
+            logger.log("Тестируем (Измененить статус задачи на [Выполнено])...");
+            taskManager.changeTaskStatus(taskId, loggedInUser);
+            logger.log("Запускаем (Просмотр задач) для проверки ....");
+            taskManager.viewTasks(loggedInUser);
+
+            logger.log("Тестируем (Удаление задачи)...");
+            taskManager.deleteTask(taskId, loggedInUser);
+            logger.log("Запускаем (Просмотр задач) для проверки ...");
+            taskManager.viewTasks(loggedInUser);
+
+        } else {
+            logger.log("Ошибка при создании задачи.");
+        }
+        // logger.close();
+    }
+
 }
 
 
