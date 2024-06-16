@@ -1,33 +1,44 @@
 package com.example.todoNew;
 
+import org.json.simple.JSONObject;
 import lombok.Getter;
 import lombok.Setter;
-import org.json.simple.JSONObject;
 
 @Getter
 @Setter
 public class User {
+    private long id;
     private String username;
     private String password;
 
+    // Конструктор для создания нового пользователя с автоматическим генерацией ID
     public User(String username, String password) {
+        this.id = System.currentTimeMillis(); // Пример генерации уникального ID на основе текущего времени
         this.username = username;
         this.password = password;
     }
 
-    public static User fromJsonObject(JSONObject jsonObject) {
-        String username = (String) jsonObject.get("username");
-        String password = (String) jsonObject.get("password");
-
-
-        return new User(username, password);
+    // Конструктор для создания пользователя с указанным ID (например, при чтении из файла)
+    public User(long id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
     }
 
-    public JSONObject toJsonObject() {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("username", getUsername());
-        jsonObject.put("password", getPassword());
+    // Метод для создания пользователя из объекта JSON
+    public static User fromJsonObject(JSONObject obj) {
+        long id = (long) obj.get("id");
+        String username = (String) obj.get("username");
+        String password = (String) obj.get("password");
+        return new User(id, username, password);
+    }
 
-        return jsonObject;
+    // Метод для преобразования пользователя в объект JSON
+    public JSONObject toJsonObject() {
+        JSONObject obj = new JSONObject();
+        obj.put("id", this.id);
+        obj.put("username", this.username);
+        obj.put("password", this.password);
+        return obj;
     }
 }

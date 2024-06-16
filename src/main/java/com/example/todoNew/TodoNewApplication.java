@@ -1,282 +1,255 @@
 package com.example.todoNew;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-@SpringBootApplication
 public class TodoNewApplication {
-    private static String loggedInUser;
-    private static boolean isTesting = false;
+    private static final Logger logger = LoggerFactory.getLogger(TaskManager.class);
+
 
     public static void main(String[] args) {
-        SpringApplication.run(TodoNewApplication.class, args);
-
         Scanner scanner = new Scanner(System.in);
-        TaskManager taskManager = new TaskManager(scanner);
 
+        System.out.println("Выберите действие:");
+        System.out.println("1. Вход");
+        System.out.println("2. Регистрация");
+        System.out.println("3. Тестирование");
+
+        int action = Integer.parseInt(scanner.nextLine().trim());
+
+        User currentUser = null;
+        if (action == 1) {
+            System.out.println("Введите имя пользователя:");
+            String username = scanner.nextLine().trim();
+
+            System.out.println("Введите пароль:");
+            String password = scanner.nextLine().trim();
+
+            currentUser = JsonFileManager.findUserByUsernameAndPassword(username, password);
+            if (currentUser == null) {
+                System.out.println("Пользователь не найден или неверный пароль.");
+                return;
+            } else {
+                System.out.println("Вход выполнен для пользователя: " + currentUser.getUsername());
+            }
+        } else if (action == 2) {
+            System.out.println("Введите имя пользователя для регистрации:");
+            String username = scanner.nextLine().trim();
+
+            System.out.println("Введите пароль для нового пользователя:");
+            String password = scanner.nextLine().trim();
+
+            currentUser = new User(username, password);
+            JsonFileManager.saveUser(currentUser);
+            System.out.println("Пользователь успешно зарегистрирован: " + username);
+        } else if (action == 3) {
+            testFunctions();
+            return;
+        } else {
+            System.out.println("Неверный выбор действия.");
+            return;
+        }
+
+        TaskManager taskManager = new TaskManager(scanner, currentUser);
         while (true) {
-
-
             System.out.println("Выберите действие:");
-            System.out.println("1. Авторизация пользователя");
-            System.out.println("2. Регистрация пользователя");
-            System.out.println("3. Тестирование действий");
-            System.out.println("0. Выход");
+            System.out.println("1. Просмотр задач");
+            System.out.println("2. Добавление задачи");
+            System.out.println("3. Редактирование задачи");
+            System.out.println("4. Удаление задачи");
+            System.out.println("5. Выход");
+            int choice = Integer.parseInt(scanner.nextLine().trim());
 
-            int loginOrRegister = scanner.nextInt();
-            scanner.nextLine();
-
-            switch (loginOrRegister) {
+            switch (choice) {
                 case 1:
-                    loggedInUser = loginUser(taskManager, scanner);
+                    taskManager.displayTasks();
                     break;
                 case 2:
-                    registerUser(taskManager, scanner);
+                    taskManager.addTask();
                     break;
                 case 3:
-                    performTesting(taskManager, scanner);
+                    taskManager.editTask();
                     break;
-                case 0:
-                    if (loggedInUser != null) {
-                        taskManager.saveTasks(loggedInUser);
-                    }
-                    System.exit(0);
+                case 4:
+                    taskManager.removeTask();
                     break;
+                case 5:
+                    System.out.println("Выход из приложения.");
+                    return;
                 default:
-                    System.out.println();
-                    continue;
+                    System.out.println("Неверный выбор действия.");
             }
-
-            performActions(scanner, taskManager, loggedInUser);
         }
     }
 
-    private static String loginUser(TaskManager taskManager, Scanner scanner) {
-        String user = null;
-        do {
-            System.out.print("Введите имя пользователя(loginUser): ");
-            String username = scanner.nextLine();
-            System.out.print("Введите пароль: ");
-            String password = scanner.nextLine();
+    private static void testFunctions() {
+     //   testUserRegistration();
+        testUserLogin();
+        testTaskCreation();
+        testTaskViewing();
+        testTaskDeletion();
+    }
 
-            if (taskManager.loginUser(username, password) != null) {
-                System.out.println("Авторизация успешна!");
-                user = username;
+    private static void testUserRegistration() {
+        User testUser = new User("testuser", "testpassword");
+        JsonFileManager.saveUser(testUser);
+
+    }
+    private static void testUserLogin() {
+        logger.info("Начало testUserLogin");
+        User currentUser = null;
+        currentUser = JsonFileManager.findUserByUsernameAndPassword("testuser", "testpassword");
+        if (currentUser == null) {
+            logger.debug("Пользователь не найден или неверный пароль.");
+            return;
+        } else {
+            logger.debug("Вход выполнен для пользователя: " + currentUser.getUsername());
+        }
+        logger.info("Завершение testUserLogin");
+    }
+
+
+    private static void testTaskCreation() {
+        logger.info("Начало testTaskCreation");
+
+        User existingUser = JsonFileManager.findUserByUsernameAndPassword("testuser", "testpassword");
+        if (existingUser == null) {
+            User testUser = new User("testuser", "testpassword");
+            JsonFileManager.saveUser(testUser);
+        }
+
+        User currentUser = JsonFileManager.findUserByUsernameAndPassword("testuser", "testpassword");
+        if (currentUser == null) {
+            logger.debug("Пользователь не найден или неверный пароль.");
+            return;
+        }
+
+        Scanner scanner = new Scanner(System.in);
+        TaskManager taskManager = new TaskManager(scanner, currentUser);
+
+        // Добавляем тестовую задачу
+        Task testTask = new Task(
+                1, "Test Task", "This is a test task.", "pending",
+                currentUser.getUsername(), currentUser.getId(),
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy HH:mm:ss")),
+                ""
+        );
+
+        taskManager.addTask(testTask);
+
+        taskManager.saveTasksToFile();
+
+        boolean taskFound = false;
+        for (Task task : taskManager.getTasks()) {
+            if (task.getName().equals("Test Task") && task.getUsername().equals(currentUser.getUsername())) {
+                taskFound = true;
+                logger.debug("Тестовая задача успешно добавлена: " + task);
                 break;
-            } else {
-                System.out.println();
-            }
-        } while (user == null);
-
-        return user;
-    }
-
-    private static void registerUser(TaskManager taskManager, Scanner scanner) {
-        System.out.print("Для регистрации введите имя пользователя: ");
-        String username = scanner.nextLine();
-        System.out.print("Введите пароль: ");
-        String password = scanner.nextLine();
-        taskManager.registerUser(username, password);
-    }
-
-    private static void performActions(Scanner scanner, TaskManager taskManager, String loggedInUser) {
-        while (true) {
-            if (loggedInUser == null && !isTesting) {
-                System.out.println("Требуется авторизация.");
-                loggedInUser = loginUser(taskManager, scanner);
-
-                if (loggedInUser != null) {
-                    viewTasks(taskManager, loggedInUser);
-                }
-            } else {
-                System.out.println("Выберите действие:");
-                System.out.println("3. Просмотр задач");
-                System.out.println("4. Создание задачи");
-                System.out.println("5. Удаление задачи");
-                System.out.println("6. Редактирование задачи");
-                System.out.println("7. Измененить статус задачи на [Выполнено]");
-                System.out.println("8. Тестирование действий");
-                System.out.println("0. Выход");
-
-                int choice = scanner.nextInt();
-                scanner.nextLine();
-
-                switch (choice) {
-                    case 3:
-                        taskManager.viewTasks(loggedInUser);
-                        break;
-                    case 4:
-                        createTaskFromConsole(taskManager, scanner, loggedInUser);
-                        break;
-                    case 5:
-                        deleteTaskFromConsole(taskManager, scanner, loggedInUser);
-                        break;
-                    case 6:
-                        editTaskFromConsole(taskManager, scanner, loggedInUser);
-                        break;
-                    case 7:
-                        changeTaskStatusFromConsole(taskManager, scanner, loggedInUser);
-                        break;
-                    case 8:
-                        performActionsTesting(taskManager, scanner);
-                        break;
-                    case 0:
-                        taskManager.saveTasks(loggedInUser);
-                        System.exit(0);
-                        break;
-                    default:
-                        System.out.println("Неверный ввод. Пожалуйста, выберите корректное действие.");
-                }
             }
         }
-    }
 
-    private static void viewTasks(TaskManager taskManager, String loggedInUser) {
-        taskManager.viewTasks(loggedInUser);
-    }
-
-    private static void createTaskFromConsole(TaskManager taskManager, Scanner scanner, String username) {
-        String name = promptForName(scanner);
-        String description = promptForDescription(scanner);
-        String status = promptForStatus(scanner);
-
-        taskManager.createTask(name, description, status, username);
-    }
-
-    private static String promptForName(Scanner scanner) {
-        System.out.print("Введите имя задачи: ");
-        return scanner.nextLine();
-    }
-
-    private static String promptForDescription(Scanner scanner) {
-        System.out.print("Введите описание задачи: ");
-        return scanner.nextLine();
-    }
-
-    private static String promptForStatus(Scanner scanner) {
-        System.out.print("Введите статус задачи: ");
-        return scanner.nextLine();
-    }
-
-    private static void deleteTaskFromConsole(TaskManager taskManager, Scanner scanner, String username) {
-        long idToDelete = promptForTaskId(scanner);
-        taskManager.deleteTask(idToDelete, username);
-    }
-
-    private static void editTaskFromConsole(TaskManager taskManager, Scanner scanner, String username) {
-        long idToEdit = promptForTaskId(scanner);
-        Task taskToEdit = taskManager.getTaskById(idToEdit, username);
-
-        if (taskToEdit != null) {
-            System.out.println("Текущее имя задачи: " + taskToEdit.getName());
-            System.out.println("Текущее описание задачи: " + taskToEdit.getDescription());
-            System.out.println("Текущий статус задачи: " + taskToEdit.getStatus());
-
-            String newName = promptForName(scanner);
-            String newDescription = promptForDescription(scanner);
-            String newStatus = promptForStatus(scanner);
-
-            if (!newName.isEmpty()) {
-                taskToEdit.setName(newName);
-                taskToEdit.setDescription(newDescription);
-                taskToEdit.setStatus(newStatus);
-
-                taskManager.saveTasks(username);
-                System.out.println("Задача успешно отредактирована!");
-            } else {
-                System.out.println("Имя задачи не может быть пустым. Редактирование отменено.");
-            }
-        } else {
-            System.out.println("Задача с указанным ID не найдена или не принадлежит пользователю.");
+        if (!taskFound) {
+            logger.error("Не удалось добавить тестовую задачу.");
         }
+
+        logger.info("Завершение testTaskCreation");
     }
 
-    private static void changeTaskStatusFromConsole(TaskManager taskManager, Scanner scanner, String username) {
-        long idToChangeStatus = promptForTaskId(scanner);
-        taskManager.changeTaskStatus(idToChangeStatus, username);
-    }
+    private static void testTaskViewing() {
+        logger.info("Начало testTaskViewing");
 
-    private static long promptForTaskId(Scanner scanner) {
-        System.out.print("Введите ID задачи: ");
-        long taskId = scanner.nextLong();
-        scanner.nextLine();
-        return taskId;
-    }
+        User existingUser = JsonFileManager.findUserByUsernameAndPassword("testuser", "testpassword");
+        if (existingUser == null) {
+            User testUser = new User("testuser", "testpassword");
+            JsonFileManager.saveUser(testUser);
 
-    private static void performTesting(TaskManager taskManager, Scanner scanner) {
-
-        isTesting = true;
-        Logger logger = Logger.getInstance();
-
-        System.out.println("Старт тестирования (регистрация/авторизация)...");
-        logger.log("Старт тестирования (регистрация/авторизация)...");
-
-        User testUser = new User("testUser", "testPassword");
-
-        logger.log("Тестирование функции регистрации...");
-        taskManager.registerUser(testUser.getUsername(), testUser.getPassword());
-
-        logger.log("Тестирование функции авторизации...");
-
-        loggedInUser = taskManager.loginUser(testUser.getUsername(), testUser.getPassword());
-        if (loggedInUser != null) {
-            logger.log("Авторизация успешна для пользователя: " + loggedInUser);
-            // performActionsTesting(taskManager, scanner, loggedInUser);
-        } else {
-            logger.log("Ошибка авторизации для пользователя: " + testUser.getUsername());
         }
-        System.out.println("Tестирование (регистрация/авторизация) завершено...детали в log.txt");
-        logger.log("Tестирование (регистрация/авторизация) завершено");
-        // logger.close();
-    }
 
-    private static void performActionsTesting(TaskManager taskManager, Scanner scanner) {
-        Logger logger = Logger.getInstance();
-
-        User testUser = new User("testUser", "testPassword");
-        loggedInUser = taskManager.loginUser(testUser.getUsername(), testUser.getPassword());
-
-        System.out.println("Старт тестирования других действи...");
-        logger.log("Тестируем (Просмотр задач)...");
-        taskManager.viewTasks(loggedInUser);
-
-        logger.log("Тестирование (Создание задачи) ...");
-        String taskName = "Test Task";
-        String taskDescription = "This is a test task.";
-        String taskStatus = "Pending";
-        long taskId = taskManager.createTask(taskName, taskDescription, taskStatus, loggedInUser);
-        logger.log("Запускаем (Просмотр задач) для проверки ...");
-        taskManager.viewTasks(loggedInUser);
-//      long taskId = 1714909480061L;
-//
-        if (taskId != -1) {
-//        if (taskId == 1714909480061L) {
-            logger.log("Тестируем (Редактирование задачи)...");
-            String newName = "Test Task editing";
-            String newTaskDescription = "This is a test task. editing";
-            String newTaskStatus = "Pending editing";
-            taskManager.editTask(taskId, newName, newTaskDescription, newTaskStatus, loggedInUser);
-            logger.log("Запускаем (Просмотр задач) для проверки ....");
-            taskManager.viewTasks(loggedInUser);
-
-            logger.log("Тестируем (Измененить статус задачи на [Выполнено])...");
-            taskManager.changeTaskStatus(taskId, loggedInUser);
-            logger.log("Запускаем (Просмотр задач) для проверки ....");
-            taskManager.viewTasks(loggedInUser);
-
-            logger.log("Тестируем (Удаление задачи)...");
-            taskManager.deleteTask(taskId, loggedInUser);
-            logger.log("Запускаем (Просмотр задач) для проверки ...");
-            taskManager.viewTasks(loggedInUser);
-
-        } else {
-            logger.log("Ошибка при создании задачи.");
+        User currentUser = JsonFileManager.findUserByUsernameAndPassword("testuser", "testpassword");
+        if (currentUser == null) {
+            logger.debug("Пользователь не найден или неверный пароль.");
+            return;
         }
-        // logger.close();
+
+        Scanner scanner = new Scanner(System.in);
+        TaskManager taskManager = new TaskManager(scanner, currentUser);
+
+        Task testTask1 = new Task(
+                1, "Test Task 1", "This is test task 1.", "pending",
+                currentUser.getUsername(), currentUser.getId(),
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy HH:mm:ss")),
+                ""
+        );
+
+        Task testTask2 = new Task(
+                2, "Test Task 2", "This is test task 2.", "completed",
+                currentUser.getUsername(), currentUser.getId(),
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy HH:mm:ss")),
+                ""
+        );
+
+        taskManager.addTask(testTask1);
+        taskManager.addTask(testTask2);
+        taskManager.saveTasksToFile();
+
+        logger.debug("Просмотр задач для пользователя: " + currentUser.getUsername());
+        taskManager.displayTasks();
+
+        logger.info("Завершение testTaskViewing");
     }
+    private static void testTaskDeletion() {
+       logger.info("Начало теста удаления задач");
+
+        User currentUser = JsonFileManager.findUserByUsernameAndPassword("testuser", "testpassword");
+        if (currentUser == null) {
+            User testUser = new User("testuser", "testpassword");
+            JsonFileManager.saveUser(testUser);
+            currentUser = testUser;
+        }
+
+        TaskManager taskManager = new TaskManager(new Scanner(System.in), currentUser);
+
+        Task testTask1 = new Task(
+                1, "Task to Delete 1", "This task should be deleted.", "pending",
+                currentUser.getUsername(), currentUser.getId(),
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy HH:mm:ss")),
+                ""
+        );
+
+        Task testTask2 = new Task(
+                2, "Task to Delete 2", "This task should also be deleted.", "completed",
+                currentUser.getUsername(), currentUser.getId(),
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy HH:mm:ss")),
+                ""
+        );
+
+        // Добавление тестовых задач в TaskManager
+        taskManager.addTask(testTask1);
+        taskManager.addTask(testTask2);
+
+        taskManager.saveTasksToFile();
+
+        logger.info("Задачи до удаления:");
+        taskManager.displayTasks();
+
+        // Удаление первой задачи
+        long taskIdToDelete = testTask1.getId();
+        taskManager.removeTask(taskIdToDelete);
+
+        // Удаление второй задачи
+        taskIdToDelete = testTask2.getId();
+        taskManager.removeTask(taskIdToDelete);
+
+        taskManager.saveTasksToFile();
+
+        logger.info("Задачи после удаления:");
+        taskManager.displayTasks();
+        logger.info("Завершение теста удаления задач");
+    }
+
 
 }
-
-

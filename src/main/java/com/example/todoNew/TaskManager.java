@@ -1,234 +1,187 @@
 package com.example.todoNew;
 
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
 import java.io.IOException;
+
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
-
-import static org.apache.tomcat.util.http.FastHttpDateFormat.getCurrentDate;
-
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TaskManager {
-    private static final String FILE_PATH = "todo.json";
-    private static final String USER_FILE_PATH = "users.json";
-    private List<Task> tasks;
-
-    private List<User> users;
+    private static final Logger logger = LoggerFactory.getLogger(TaskManager.class);
     private Scanner scanner;
+    private User currentUser;
+    private List<Task> tasks;
+    private final String TASKS_FILE = "tasks.json";
+    LocalDateTime currentDateTime = LocalDateTime.now();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy HH:mm:ss");
+    String formattedDateTime = currentDateTime.format(formatter);
 
-    public TaskManager(Scanner scanner) {
-        this.tasks = new ArrayList<>();
-        this.users = new ArrayList<>();
+    public TaskManager(Scanner scanner, User currentUser) {
         this.scanner = scanner;
-        loadUsers();
-    }
-    Logger logger = Logger.getInstance();
-
-    private void loadUsers() {
-        try (FileReader reader = new FileReader(USER_FILE_PATH)) {
-            JSONParser parser = new JSONParser();
-            JSONArray jsonArray = (JSONArray) parser.parse(reader);
-
-            users.clear();
-            for (Object obj : jsonArray) {
-                if (obj instanceof org.json.simple.JSONObject) {
-                    users.add(User.fromJsonObject((org.json.simple.JSONObject) obj));
-                }
-            }
-        } catch (IOException | ParseException e) {
-            e.printStackTrace();
-        }
+        this.currentUser = currentUser;
+        this.tasks = loadTasksFromFile();
     }
 
-    private void saveUsers() {
-        try (FileWriter writer = new FileWriter(USER_FILE_PATH)) {
-            JSONArray jsonArray = new JSONArray();
-            for (User user : users) {
-                jsonArray.add(user.toJsonObject());
-            }
-            writer.write(jsonArray.toJSONString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void registerUser(String username, String password) {
-        for (User user : users) {
-            if (user.getUsername().equals(username)) {
-                logger.log("Пользователь с таким именем уже существует.");
-                System.out.println("Пользователь с таким именем уже существует.");
-                return;
+    public void displayTasks() {
+        boolean tasksFound = false;
+        System.out.println("Задачи пользователя " + currentUser.getUsername() + ":");
+        logger.info("Задачи пользователя {}: {}", currentUser.getUsername(), tasks);
+        for (Task task : tasks) {
+            if (task.getUsername().equals(currentUser.getUsername())) {
+                System.out.println(task);
+                logger.info("Задачa:" + task);
+                tasksFound = true;
             }
         }
-        User newUser = new User(username, password);
-        users.add(newUser);
-        saveUsers();
-        logger.log("Пользователь успешно зарегистрирован!");
-        System.out.println("Пользователь успешно зарегистрирован!");
-    }
-
-public String loginUser(String username, String password) {
-    for (User user : users) {
-        if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-            logger.log("Пользователь: " + username + " успешно авторизирован");
-            System.out.println("Пользователь: " + username + " успешно авторизирован");
-            return username; // Возвращаем имя пользователя при успешной авторизации
-        }
-    }
-    logger.log("Ошибка авторизации для пользователя: " + username);
-    System.out.println("Ошибка авторизации для пользователя: " + username);
-    return null; // Возвращаем null при неудачной авторизации
-}
-
-    public void loadTasks(String username) throws FileNotFoundException {
-
-        try {
-
-            FileReader reader = new FileReader(username + "_" + FILE_PATH);
-            JSONParser parser = new JSONParser();
-            JSONArray jsonArray = (JSONArray) parser.parse(reader);
-
-            tasks.clear();
-            for (Object obj : jsonArray) {
-                if (obj instanceof org.json.simple.JSONObject) {
-                    Task task = Task.fromJsonObject((org.json.simple.JSONObject) obj);
-                    tasks.add(task);
-                }
-
-            }
-        } catch (IOException | ParseException e) {
-            if (e instanceof FileNotFoundException) {
-                logger.log("Ошибка загрузки задач: файл не найден для пользователя: " + username);
-                throw (FileNotFoundException) e;
-            }
-            logger.log("Ошибка загрузки задач для пользователя: " + username + ". Подробности: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-    public void saveTasks(String username) {
-        try (FileWriter writer = new FileWriter(username + "_" + FILE_PATH)) {
-            JSONArray jsonArray = new JSONArray();
-            for (Task task : tasks) {
-
-                task.setUsername(username);
-                jsonArray.add(task.toJsonObject());
-            }
-            writer.write(jsonArray.toJSONString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void viewTasks(String username) {
-        try {
-            loadTasks(username);
-            System.out.println("Список задач:");
-            logger.log("Список задач:");
-            if (tasks.isEmpty()) {
-                System.out.println("Задачи отсутствуют.");
-                logger.log("Задачи отсутствуют.");
-            } else {
-                for (Task task : tasks) {
-                    System.out.println(task);
-                    logger.log("Задачи :" + task.toString());
-                }
-            }
-        } catch (FileNotFoundException e) {
-            logger.log("Задачи отсутствуют.");
+        if (!tasksFound) {
             System.out.println("Задачи отсутствуют.");
-        } catch (Exception e) {
-            e.printStackTrace();
+            logger.info("Задачи отсутствуют.");
         }
     }
 
-    public long createTask(String name, String description, String status, String username) {
-        try {
-            long id = System.currentTimeMillis();
-            Task newTask = new Task(id, name, description, status, getCurrentDate(), "", username);
-            tasks.add(newTask);
-            saveTasks(username);
-            logger.log("Задача успешно создана!");
-            System.out.println("Задача успешно создана!");
-            return id;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return -1;
-        }
+    public void addTask() {
+        logger.info("Начало добавления новой задачи");
+
+        System.out.println("Введите название задачи:");
+        String name = scanner.nextLine().trim();
+        System.out.println("Введите описание задачи:");
+        String description = scanner.nextLine().trim();
+        System.out.println("Введите статус задачи:");
+        String status = scanner.nextLine().trim();
+
+        long id = tasks.size() + 1;
+
+
+        Task newTask = new Task(id, name, description, status, currentUser.getUsername(), currentUser.getId(), formattedDateTime, "");
+        tasks.add(newTask);
+        System.out.println("Новая задача добавлена:");
+        System.out.println(newTask);
+
+        saveTasksToFile();
+
+        logger.info("Завершение добавления новой задачи");
+    }
+    public void addTask(Task task) {
+        tasks.add(task);
     }
 
-    public void deleteTask(long idToDelete, String username) {
-        try {
-            Iterator<Task> iterator = tasks.iterator();
-            while (iterator.hasNext()) {
-                Task task = iterator.next();
-                if (task.getId() == idToDelete && task.getUsername().equals(username)) {
-                    iterator.remove();
-                    saveTasks(username);
-                    logger.log("Задача успешно удалена!");
-                    System.out.println("Задача успешно удалена!");
-                    return;
-                }
-            }
-            logger.log("Задача с указанным ID не найдена или не принадлежит текущему пользователю.");
-            System.out.println("Задача с указанным ID не найдена или не принадлежит текущему пользователю.");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    public void editTask() {
+        logger.info("Начало редактирования новой задачи");
 
-    public void editTask(long taskIdToEdit, String newName, String newDescription, String newStatus, String username) {
-        for (Task task : tasks) {
-            if (task.getId() == taskIdToEdit && task.getUsername().equals(username)) {
-                task.setName(newName);
-                task.setDescription(newDescription);
-                task.setStatus(newStatus);
-                saveTasks(username);
-                logger.log("Задача успешно отредактирована!");
-                System.out.println("Задача успешно отредактирована!");
-                return;
-            }
-        }
-        logger.log("Задача с указанным ID не найдена или не принадлежит пользователю.");
-        System.out.println("Задача с указанным ID не найдена или не принадлежит пользователю.");
-    }
+        System.out.println("Введите ID задачи для редактирования:");
+        if (scanner.hasNextLong()) {
+            long taskId = scanner.nextLong();
+            scanner.nextLine();
 
-    public Task getTaskById(long taskId, String username) {
-        for (Task task : tasks) {
-            if (task.getId() == taskId && task.getUsername().equals(username)) {
-                return task;
-            }
-        }
-        return null;
-    }
-
-    public void changeTaskStatus(long idToChangeStatus, String username) {
-        try {
+          Task taskToEdit = null;
             for (Task task : tasks) {
-                if (task.getId() == idToChangeStatus && task.getUsername().equals(username)) {
-
-                    task.setStatus("Выполнено");
-
-                    task.setDateEnd(getCurrentDate());
-
-                    saveTasks(username);
-                    logger.log("Статус задачи успешно изменен на 'Выполнено'!");
-                    System.out.println("Статус задачи успешно изменен на 'Выполнено'!");
-                    return;
+                if (task.getId() == taskId && task.getUsername().equals(currentUser.getUsername())) {
+                    taskToEdit = task;
+                    break;
                 }
             }
-            logger.log("Задача с указанным ID не найдена или не принадлежит пользователю.");
-            System.out.println("Задача с указанным ID не найдена или не принадлежит пользователю.");
-        } catch (Exception e) {
-            e.printStackTrace();
+
+            if (taskToEdit != null) {
+                System.out.println("Введите новое название задачи:");
+                String name = scanner.nextLine().trim();
+                System.out.println("Введите новое описание задачи:");
+                String description = scanner.nextLine().trim();
+                System.out.println("Введите новый статус задачи:");
+                String status = scanner.nextLine().trim();
+
+                // Обновляем данные задачи
+                taskToEdit.setName(name);
+                taskToEdit.setDescription(description);
+                taskToEdit.setStatus(status);
+                taskToEdit.setUpdatedAt(formattedDateTime);
+
+                System.out.println("Задача успешно отредактирована:");
+                System.out.println(taskToEdit);
+
+                saveTasksToFile(); // Сохраняем обновленный список задач в файл
+            } else {
+                System.out.println("Задача с ID " + taskId + " не найдена или не принадлежит текущему пользователю.");
+                logger.debug("Задача с ID " + taskId + " не найдена или не принадлежит текущему пользователю.");
+            }
+        } else {
+            System.out.println("Некорректный формат ID задачи.");
+            logger.error("Завершение редактирования  новой задачи");
+            scanner.nextLine();
+        }
+
+        logger.info("Завершение редактирования  новой задачи");
+    }
+
+    public void removeTask() {
+        System.out.println("Введите ID задачи для удаления:");
+        if (scanner.hasNextLong()) {
+            long taskId = scanner.nextLong();
+            scanner.nextLine(); // Считываем символ новой строки после считывания числа
+
+            boolean removed = tasks.removeIf(task -> task.getId() == taskId && task.getUsername().equals(currentUser.getUsername()));
+            if (removed) {
+                System.out.println("Задача с ID " + taskId + " удалена.");
+                logger.debug("Задача с ID " + taskId + " удалена.");
+                saveTasksToFile();
+            } else {
+                System.out.println("Задача с ID " + taskId + " не найдена или не принадлежит текущему пользователю.");
+                logger.debug("Задача с ID " + taskId + " не найдена или не принадлежит текущему пользователю.");
+            }
+        } else {
+            System.out.println("Некорректный формат ID задачи.");
+            logger.debug("Некорректный формат ID задачи.");
+            scanner.nextLine();
         }
     }
+
+    private List<Task> loadTasksFromFile() {
+        try {
+            File file = new File(TASKS_FILE);
+            ObjectMapper mapper = new ObjectMapper();
+            if (file.exists()) {
+                return mapper.readValue(file, new TypeReference<List<Task>>() {});
+            } else {
+                return new ArrayList<>();
+            }
+
+        } catch (IOException e) {
+            //System.out.println("Ошибка при чтении файла задач: " + e.getMessage());
+            logger.error("Ошибка при чтении файла задач: " + e.getMessage());
+            return new ArrayList<>();
+        }
+    }
+
+        public void saveTasksToFile() {
+        try {
+            File file = new File(TASKS_FILE);
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.writeValue(file, tasks);
+            //System.out.println("Задачи успешно сохранены в файл " + TASKS_FILE);
+            logger.info("Задачи успешно сохранены в файл " + TASKS_FILE);
+        } catch (IOException e) {
+            //System.out.println("Ошибка при сохранении файла задач: " + e.getMessage());
+            logger.error("Ошибка при сохранении файла задач: " + e.getMessage());
+        }
+    }
+    public List<Task> getTasks() {
+        return loadTasksFromFile();
+    }
+    public void removeTask(long taskId) {
+        boolean removed = tasks.removeIf(task -> task.getId() == taskId && task.getUsername().equals(currentUser.getUsername()));
+        if (removed) {
+            //System.out.println("Задача с ID " + taskId + " удалена.");
+            logger.debug("Задача с ID " + taskId + " удалена.");
+            saveTasksToFile();
+        } else {
+            logger.debug("Задача с ID " + taskId + " не найдена или не принадлежит текущему пользователю.");
+        }
+    }
+
 }
