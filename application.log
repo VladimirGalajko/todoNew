@@ -1,0 +1,163 @@
+2024-06-16 11:45:38.788 [main] INFO  com.example.todoNew.TaskManager - Начало testUserLogin
+2024-06-16 11:45:38.798 [main] DEBUG com.example.todoNew.TaskManager - Вход выполнен для пользователя: testuser
+2024-06-16 11:45:38.799 [main] INFO  com.example.todoNew.TaskManager - Завершение testUserLogin
+2024-06-16 11:45:38.799 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskCreation
+2024-06-16 11:45:39.023 [main] DEBUG com.example.todoNew.TaskManager - Тестовая задача успешно добавлена: Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 11:45:38, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 11:45:39.023 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskCreation
+2024-06-16 11:45:39.023 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskViewing
+2024-06-16 11:45:39.027 [main] DEBUG com.example.todoNew.TaskManager - Просмотр задач для пользователя: testuser
+2024-06-16 11:45:39.027 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser:
+2024-06-16 11:45:39.028 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskViewing
+2024-06-16 11:45:39.028 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskDeletion
+2024-06-16 11:45:39.032 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser:
+2024-06-16 11:45:39.034 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 1 удалена.
+2024-06-16 11:45:39.037 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 2 удалена.
+2024-06-16 11:45:39.038 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser:
+2024-06-16 11:45:39.038 [main] INFO  com.example.todoNew.TaskManager - Задачи отсутствуют.
+2024-06-16 11:45:39.038 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskDeletion
+2024-06-16 11:46:57.427 [main] INFO  com.example.todoNew.TaskManager - Начало testUserLogin
+2024-06-16 11:46:57.438 [main] DEBUG com.example.todoNew.TaskManager - Вход выполнен для пользователя: testuser
+2024-06-16 11:46:57.438 [main] INFO  com.example.todoNew.TaskManager - Завершение testUserLogin
+2024-06-16 11:46:57.438 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskCreation
+2024-06-16 11:46:57.659 [main] DEBUG com.example.todoNew.TaskManager - Тестовая задача успешно добавлена: Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 11:46:57, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 11:46:57.659 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskCreation
+2024-06-16 11:46:57.659 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskViewing
+2024-06-16 11:46:57.663 [main] DEBUG com.example.todoNew.TaskManager - Просмотр задач для пользователя: testuser
+2024-06-16 11:46:57.663 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser:
+2024-06-16 11:46:57.663 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskViewing
+2024-06-16 11:46:57.667 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser:
+2024-06-16 11:46:57.670 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 1 удалена.
+2024-06-16 11:46:57.672 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 2 удалена.
+2024-06-16 11:46:57.673 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser:
+2024-06-16 11:46:57.673 [main] INFO  com.example.todoNew.TaskManager - Задачи отсутствуют.
+2024-06-16 11:48:21.435 [main] INFO  com.example.todoNew.TaskManager - Начало testUserLogin
+2024-06-16 11:48:21.445 [main] DEBUG com.example.todoNew.TaskManager - Вход выполнен для пользователя: testuser
+2024-06-16 11:48:21.446 [main] INFO  com.example.todoNew.TaskManager - Завершение testUserLogin
+2024-06-16 11:48:21.446 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskCreation
+2024-06-16 11:48:21.666 [main] DEBUG com.example.todoNew.TaskManager - Тестовая задача успешно добавлена: Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 11:48:21, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 11:48:21.666 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskCreation
+2024-06-16 11:48:21.666 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskViewing
+2024-06-16 11:48:21.670 [main] DEBUG com.example.todoNew.TaskManager - Просмотр задач для пользователя: testuser
+2024-06-16 11:48:21.671 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser:
+2024-06-16 11:48:21.672 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskViewing
+2024-06-16 11:48:21.676 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser:
+2024-06-16 11:48:21.679 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 1 удалена.
+2024-06-16 11:48:21.681 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 2 удалена.
+2024-06-16 11:48:21.682 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser:
+2024-06-16 11:48:21.682 [main] INFO  com.example.todoNew.TaskManager - Задачи отсутствуют.
+2024-06-16 11:50:11.594 [main] INFO  com.example.todoNew.TaskManager - Начало testUserLogin
+2024-06-16 11:50:11.605 [main] DEBUG com.example.todoNew.TaskManager - Вход выполнен для пользователя: testuser
+2024-06-16 11:50:11.605 [main] INFO  com.example.todoNew.TaskManager - Завершение testUserLogin
+2024-06-16 11:50:11.605 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskCreation
+2024-06-16 11:50:11.826 [main] DEBUG com.example.todoNew.TaskManager - Тестовая задача успешно добавлена: Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 11:50:11, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 11:50:11.826 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskCreation
+2024-06-16 11:50:11.826 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskViewing
+2024-06-16 11:50:11.830 [main] DEBUG com.example.todoNew.TaskManager - Просмотр задач для пользователя: testuser
+2024-06-16 11:50:11.830 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser: [Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 11:50:11, updatedAt=, username=testuser, userId=1718489202676), Task(id=1, name=Test Task 1, description=This is test task 1., status=pending, createdAt=2024 11:50:11, updatedAt=, username=testuser, userId=1718489202676), Task(id=2, name=Test Task 2, description=This is test task 2., status=completed, createdAt=2024 11:50:11, updatedAt=, username=testuser, userId=1718489202676)]
+2024-06-16 11:50:11.832 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskViewing
+2024-06-16 11:50:11.836 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser: [Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 11:50:11, updatedAt=, username=testuser, userId=1718489202676), Task(id=1, name=Test Task 1, description=This is test task 1., status=pending, createdAt=2024 11:50:11, updatedAt=, username=testuser, userId=1718489202676), Task(id=2, name=Test Task 2, description=This is test task 2., status=completed, createdAt=2024 11:50:11, updatedAt=, username=testuser, userId=1718489202676), Task(id=1, name=Task to Delete 1, description=This task should be deleted., status=pending, createdAt=2024 11:50:11, updatedAt=, username=testuser, userId=1718489202676), Task(id=2, name=Task to Delete 2, description=This task should also be deleted., status=completed, createdAt=2024 11:50:11, updatedAt=, username=testuser, userId=1718489202676)]
+2024-06-16 11:50:11.839 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 1 удалена.
+2024-06-16 11:50:11.841 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 2 удалена.
+2024-06-16 11:50:11.842 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser: []
+2024-06-16 11:50:11.842 [main] INFO  com.example.todoNew.TaskManager - Задачи отсутствуют.
+2024-06-16 11:52:34.801 [main] INFO  com.example.todoNew.TaskManager - Начало testUserLogin
+2024-06-16 11:52:34.812 [main] DEBUG com.example.todoNew.TaskManager - Вход выполнен для пользователя: testuser
+2024-06-16 11:52:34.812 [main] INFO  com.example.todoNew.TaskManager - Завершение testUserLogin
+2024-06-16 11:52:34.812 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskCreation
+2024-06-16 11:52:35.034 [main] DEBUG com.example.todoNew.TaskManager - Тестовая задача успешно добавлена: Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 11:52:35, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 11:52:35.034 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskCreation
+2024-06-16 11:52:35.034 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskViewing
+2024-06-16 11:52:35.038 [main] DEBUG com.example.todoNew.TaskManager - Просмотр задач для пользователя: testuser
+2024-06-16 11:52:35.038 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser: [Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 11:52:35, updatedAt=, username=testuser, userId=1718489202676), Task(id=1, name=Test Task 1, description=This is test task 1., status=pending, createdAt=2024 11:52:35, updatedAt=, username=testuser, userId=1718489202676), Task(id=2, name=Test Task 2, description=This is test task 2., status=completed, createdAt=2024 11:52:35, updatedAt=, username=testuser, userId=1718489202676)]
+2024-06-16 11:52:35.040 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskViewing
+2024-06-16 11:52:35.040 [main] INFO  com.example.todoNew.TaskManager - Начало теста удаления задач
+2024-06-16 11:52:35.044 [main] INFO  com.example.todoNew.TaskManager - Задачи до удаления:
+2024-06-16 11:52:35.044 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser: [Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 11:52:35, updatedAt=, username=testuser, userId=1718489202676), Task(id=1, name=Test Task 1, description=This is test task 1., status=pending, createdAt=2024 11:52:35, updatedAt=, username=testuser, userId=1718489202676), Task(id=2, name=Test Task 2, description=This is test task 2., status=completed, createdAt=2024 11:52:35, updatedAt=, username=testuser, userId=1718489202676), Task(id=1, name=Task to Delete 1, description=This task should be deleted., status=pending, createdAt=2024 11:52:35, updatedAt=, username=testuser, userId=1718489202676), Task(id=2, name=Task to Delete 2, description=This task should also be deleted., status=completed, createdAt=2024 11:52:35, updatedAt=, username=testuser, userId=1718489202676)]
+2024-06-16 11:52:35.047 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 1 удалена.
+2024-06-16 11:52:35.049 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 2 удалена.
+2024-06-16 11:52:35.050 [main] INFO  com.example.todoNew.TaskManager - Задачи после удаления:
+2024-06-16 11:52:35.050 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser: []
+2024-06-16 11:52:35.050 [main] INFO  com.example.todoNew.TaskManager - Задачи отсутствуют.
+2024-06-16 11:52:35.050 [main] INFO  com.example.todoNew.TaskManager - Завершение теста удаления задач
+2024-06-16 12:04:32.454 [main] INFO  com.example.todoNew.TaskManager - Начало testUserLogin
+2024-06-16 12:04:32.469 [main] DEBUG com.example.todoNew.TaskManager - Вход выполнен для пользователя: testuser
+2024-06-16 12:04:32.469 [main] INFO  com.example.todoNew.TaskManager - Завершение testUserLogin
+2024-06-16 12:04:32.469 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskCreation
+2024-06-16 12:04:32.679 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:04:32.693 [main] DEBUG com.example.todoNew.TaskManager - Тестовая задача успешно добавлена: Task(id=5, name=Test Task, description=This is a test task., status=pending, createdAt=2024 12:04:32, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 12:04:32.693 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskCreation
+2024-06-16 12:04:32.693 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskViewing
+2024-06-16 12:04:32.697 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:04:32.697 [main] DEBUG com.example.todoNew.TaskManager - Просмотр задач для пользователя: testuser
+2024-06-16 12:04:32.698 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser: [Task(id=5, name=Test Task, description=This is a test task., status=pending, createdAt=2024 12:04:32, updatedAt=, username=testuser, userId=1718489202676), Task(id=1, name=Test Task 1, description=This is test task 1., status=pending, createdAt=2024 12:04:32, updatedAt=, username=testuser, userId=1718489202676), Task(id=2, name=Test Task 2, description=This is test task 2., status=completed, createdAt=2024 12:04:32, updatedAt=, username=testuser, userId=1718489202676)]
+2024-06-16 12:04:32.700 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskViewing
+2024-06-16 12:04:32.700 [main] INFO  com.example.todoNew.TaskManager - Начало теста удаления задач
+2024-06-16 12:04:32.704 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:04:32.704 [main] INFO  com.example.todoNew.TaskManager - Задачи до удаления:
+2024-06-16 12:04:32.704 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser: [Task(id=5, name=Test Task, description=This is a test task., status=pending, createdAt=2024 12:04:32, updatedAt=, username=testuser, userId=1718489202676), Task(id=1, name=Test Task 1, description=This is test task 1., status=pending, createdAt=2024 12:04:32, updatedAt=, username=testuser, userId=1718489202676), Task(id=2, name=Test Task 2, description=This is test task 2., status=completed, createdAt=2024 12:04:32, updatedAt=, username=testuser, userId=1718489202676), Task(id=1, name=Task to Delete 1, description=This task should be deleted., status=pending, createdAt=2024 12:04:32, updatedAt=, username=testuser, userId=1718489202676), Task(id=2, name=Task to Delete 2, description=This task should also be deleted., status=completed, createdAt=2024 12:04:32, updatedAt=, username=testuser, userId=1718489202676)]
+2024-06-16 12:04:32.707 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 1 удалена.
+2024-06-16 12:04:32.709 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:04:32.709 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 2 удалена.
+2024-06-16 12:04:32.710 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:04:32.712 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:04:32.712 [main] INFO  com.example.todoNew.TaskManager - Задачи после удаления:
+2024-06-16 12:04:32.712 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser: [Task(id=5, name=Test Task, description=This is a test task., status=pending, createdAt=2024 12:04:32, updatedAt=, username=testuser, userId=1718489202676)]
+2024-06-16 12:04:32.712 [main] INFO  com.example.todoNew.TaskManager - Завершение теста удаления задач
+2024-06-16 12:16:26.330 [main] INFO  com.example.todoNew.TaskManager - Начало testUserLogin
+2024-06-16 12:16:26.342 [main] DEBUG com.example.todoNew.TaskManager - Вход выполнен для пользователя: testuser
+2024-06-16 12:16:26.342 [main] INFO  com.example.todoNew.TaskManager - Завершение testUserLogin
+2024-06-16 12:16:26.342 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskCreation
+2024-06-16 12:16:26.556 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:16:26.572 [main] DEBUG com.example.todoNew.TaskManager - Тестовая задача успешно добавлена: Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 12:16:26, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 12:16:26.572 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskCreation
+2024-06-16 12:16:26.572 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskViewing
+2024-06-16 12:16:26.576 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:16:26.576 [main] DEBUG com.example.todoNew.TaskManager - Просмотр задач для пользователя: testuser
+2024-06-16 12:16:26.576 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser: [Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 12:16:26, updatedAt=, username=testuser, userId=1718489202676), Task(id=1, name=Test Task 1, description=This is test task 1., status=pending, createdAt=2024 12:16:26, updatedAt=, username=testuser, userId=1718489202676), Task(id=2, name=Test Task 2, description=This is test task 2., status=completed, createdAt=2024 12:16:26, updatedAt=, username=testuser, userId=1718489202676)]
+2024-06-16 12:16:26.577 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskViewing
+2024-06-16 12:16:26.578 [main] INFO  com.example.todoNew.TaskManager - Начало теста удаления задач
+2024-06-16 12:16:26.583 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:16:26.583 [main] INFO  com.example.todoNew.TaskManager - Задачи до удаления:
+2024-06-16 12:16:26.583 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser: [Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 12:16:26, updatedAt=, username=testuser, userId=1718489202676), Task(id=1, name=Test Task 1, description=This is test task 1., status=pending, createdAt=2024 12:16:26, updatedAt=, username=testuser, userId=1718489202676), Task(id=2, name=Test Task 2, description=This is test task 2., status=completed, createdAt=2024 12:16:26, updatedAt=, username=testuser, userId=1718489202676), Task(id=1, name=Task to Delete 1, description=This task should be deleted., status=pending, createdAt=2024 12:16:26, updatedAt=, username=testuser, userId=1718489202676), Task(id=2, name=Task to Delete 2, description=This task should also be deleted., status=completed, createdAt=2024 12:16:26, updatedAt=, username=testuser, userId=1718489202676)]
+2024-06-16 12:16:26.586 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 1 удалена.
+2024-06-16 12:16:26.588 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:16:26.588 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 2 удалена.
+2024-06-16 12:16:26.588 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:16:26.589 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:16:26.589 [main] INFO  com.example.todoNew.TaskManager - Задачи после удаления:
+2024-06-16 12:16:26.589 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser: []
+2024-06-16 12:16:26.589 [main] INFO  com.example.todoNew.TaskManager - Задачи отсутствуют.
+2024-06-16 12:16:26.589 [main] INFO  com.example.todoNew.TaskManager - Завершение теста удаления задач
+2024-06-16 12:22:12.248 [main] INFO  com.example.todoNew.TaskManager - Начало testUserLogin
+2024-06-16 12:22:12.259 [main] DEBUG com.example.todoNew.TaskManager - Вход выполнен для пользователя: testuser
+2024-06-16 12:22:12.260 [main] INFO  com.example.todoNew.TaskManager - Завершение testUserLogin
+2024-06-16 12:22:12.260 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskCreation
+2024-06-16 12:22:12.471 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:22:12.485 [main] DEBUG com.example.todoNew.TaskManager - Тестовая задача успешно добавлена: Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 12:22:12.485 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskCreation
+2024-06-16 12:22:12.485 [main] INFO  com.example.todoNew.TaskManager - Начало testTaskViewing
+2024-06-16 12:22:12.489 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:22:12.489 [main] DEBUG com.example.todoNew.TaskManager - Просмотр задач для пользователя: testuser
+2024-06-16 12:22:12.490 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser: [Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676), Task(id=1, name=Test Task 1, description=This is test task 1., status=pending, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676), Task(id=2, name=Test Task 2, description=This is test task 2., status=completed, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676)]
+2024-06-16 12:22:12.491 [main] INFO  com.example.todoNew.TaskManager - Задачи:Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 12:22:12.491 [main] INFO  com.example.todoNew.TaskManager - Задачи:Task(id=1, name=Test Task 1, description=This is test task 1., status=pending, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 12:22:12.491 [main] INFO  com.example.todoNew.TaskManager - Задачи:Task(id=2, name=Test Task 2, description=This is test task 2., status=completed, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 12:22:12.491 [main] INFO  com.example.todoNew.TaskManager - Завершение testTaskViewing
+2024-06-16 12:22:12.491 [main] INFO  com.example.todoNew.TaskManager - Начало теста удаления задач
+2024-06-16 12:22:12.495 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:22:12.496 [main] INFO  com.example.todoNew.TaskManager - Задачи до удаления:
+2024-06-16 12:22:12.496 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser: [Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676), Task(id=1, name=Test Task 1, description=This is test task 1., status=pending, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676), Task(id=2, name=Test Task 2, description=This is test task 2., status=completed, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676), Task(id=1, name=Task to Delete 1, description=This task should be deleted., status=pending, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676), Task(id=2, name=Task to Delete 2, description=This task should also be deleted., status=completed, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676)]
+2024-06-16 12:22:12.496 [main] INFO  com.example.todoNew.TaskManager - Задачи:Task(id=1, name=Test Task, description=This is a test task., status=pending, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 12:22:12.496 [main] INFO  com.example.todoNew.TaskManager - Задачи:Task(id=1, name=Test Task 1, description=This is test task 1., status=pending, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 12:22:12.496 [main] INFO  com.example.todoNew.TaskManager - Задачи:Task(id=2, name=Test Task 2, description=This is test task 2., status=completed, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 12:22:12.496 [main] INFO  com.example.todoNew.TaskManager - Задачи:Task(id=1, name=Task to Delete 1, description=This task should be deleted., status=pending, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 12:22:12.496 [main] INFO  com.example.todoNew.TaskManager - Задачи:Task(id=2, name=Task to Delete 2, description=This task should also be deleted., status=completed, createdAt=2024 12:22:12, updatedAt=, username=testuser, userId=1718489202676)
+2024-06-16 12:22:12.499 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 1 удалена.
+2024-06-16 12:22:12.500 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:22:12.501 [main] DEBUG com.example.todoNew.TaskManager - Задача с ID 2 удалена.
+2024-06-16 12:22:12.501 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:22:12.502 [main] INFO  com.example.todoNew.TaskManager - Задачи успешно сохранены в файл tasks.json
+2024-06-16 12:22:12.502 [main] INFO  com.example.todoNew.TaskManager - Задачи после удаления:
+2024-06-16 12:22:12.502 [main] INFO  com.example.todoNew.TaskManager - Задачи пользователя testuser: []
+2024-06-16 12:22:12.502 [main] INFO  com.example.todoNew.TaskManager - Задачи отсутствуют.
+2024-06-16 12:22:12.502 [main] INFO  com.example.todoNew.TaskManager - Завершение теста удаления задач
