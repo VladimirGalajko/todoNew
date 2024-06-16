@@ -20,7 +20,6 @@ public class JsonFileManager {
     }
 
     public static void saveUser(User user) {
-        // Проверяем, что пользователь с таким именем уже не существует
         for (User existingUser : users) {
             if (existingUser.getUsername().equals(user.getUsername())) {
                 System.out.println("Пользователь с именем '" + user.getUsername() + "' уже существует.");

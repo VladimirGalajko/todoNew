@@ -227,7 +227,6 @@ public class TodoNewApplication {
                 ""
         );
 
-        // Добавление тестовых задач в TaskManager
         taskManager.addTask(testTask1);
         taskManager.addTask(testTask2);
 
@@ -236,11 +235,9 @@ public class TodoNewApplication {
         logger.info("Задачи до удаления:");
         taskManager.displayTasks();
 
-        // Удаление первой задачи
         long taskIdToDelete = testTask1.getId();
         taskManager.removeTask(taskIdToDelete);
 
-        // Удаление второй задачи
         taskIdToDelete = testTask2.getId();
         taskManager.removeTask(taskIdToDelete);
 
