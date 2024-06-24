@@ -4,6 +4,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JsonFileManager {
+    private static final Logger logger = LoggerFactory.getLogger(TestManager.class);
     private static final String USERS_FILE = "users.json";
     private static List<User> users = new ArrayList<>();
 
@@ -19,10 +22,13 @@ public class JsonFileManager {
         loadUsers();
     }
 
-    public static void saveUser(User user) {
+    public static void saveUser(User user, boolean testMode) {
         for (User existingUser : users) {
             if (existingUser.getUsername().equals(user.getUsername())) {
-                System.out.println("Пользователь с именем '" + user.getUsername() + "' уже существует.");
+                if (!testMode) {
+                    System.out.println("Пользователь с именем '" + user.getUsername() + "' уже существует.");
+                }
+                logger.info("Пользователь с именем '" + user.getUsername() + "' уже существует.");
                 return;
             }
         }

@@ -27,24 +27,31 @@ public class TaskManager {
         this.scanner = scanner;
         this.currentUser = currentUser;
         this.tasks = loadTasksFromFile();
+
     }
 
-    public void displayTasks() {
-        boolean tasksFound = false;
+public void displayTasks(boolean testMode) {
+    boolean tasksFound = false;
+    if (!testMode) {
         System.out.println("Задачи пользователя " + currentUser.getUsername() + ":");
-        logger.info("Задачи пользователя {}: {}", currentUser.getUsername(), tasks);
-        for (Task task : tasks) {
-            if (task.getUsername().equals(currentUser.getUsername())) {
+    }
+    logger.info("Задачи пользователя {}: {}", currentUser.getUsername(), tasks);
+    for (Task task : tasks) {
+        if (task.getUsername().equals(currentUser.getUsername())) {
+            if (!testMode) {
                 System.out.println(task);
-                logger.info("Задачa:" + task);
-                tasksFound = true;
             }
-        }
-        if (!tasksFound) {
-            System.out.println("Задачи отсутствуют.");
-            logger.info("Задачи отсутствуют.");
+            logger.info("Задачa: " + task);
+            tasksFound = true;
         }
     }
+    if (!tasksFound) {
+        if (!testMode) {
+            System.out.println("Задачи отсутствуют.");
+        }
+        logger.info("Задачи отсутствуют.");
+    }
+}
 
     public void addTask() {
         logger.info("Начало добавления новой задачи");
