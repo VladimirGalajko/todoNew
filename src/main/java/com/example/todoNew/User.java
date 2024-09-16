@@ -1,11 +1,13 @@
 package com.example.todoNew;
 
+import lombok.ToString;
 import org.json.simple.JSONObject;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@ToString
 public class User {
     private long id;
     private String username;

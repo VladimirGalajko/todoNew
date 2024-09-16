@@ -2,150 +2,35 @@ package com.example.todoNew;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Getter;
+
 import java.io.File;
 import java.io.IOException;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TaskManager {
-    private static final Logger logger = LoggerFactory.getLogger(TaskManager.class);
-    private Scanner scanner;
-    private User currentUser;
+
+    private final User currentUser;
+    @Getter
     private List<Task> tasks;
     private final String TASKS_FILE = "tasks.json";
     LocalDateTime currentDateTime = LocalDateTime.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy HH:mm:ss");
     String formattedDateTime = currentDateTime.format(formatter);
 
-    public TaskManager(Scanner scanner, User currentUser) {
-        this.scanner = scanner;
+    public TaskManager(User currentUser) {
         this.currentUser = currentUser;
         this.tasks = loadTasksFromFile();
-
     }
 
-public void displayTasks(boolean testMode) {
-    boolean tasksFound = false;
-    if (!testMode) {
-        System.out.println("Задачи пользователя " + currentUser.getUsername() + ":");
-    }
-    logger.info("Задачи пользователя {}: {}", currentUser.getUsername(), tasks);
-    for (Task task : tasks) {
-        if (task.getUsername().equals(currentUser.getUsername())) {
-            if (!testMode) {
-                System.out.println(task);
-            }
-            logger.info("Задачa: " + task);
-            tasksFound = true;
-        }
-    }
-    if (!tasksFound) {
-        if (!testMode) {
-            System.out.println("Задачи отсутствуют.");
-        }
-        logger.info("Задачи отсутствуют.");
-    }
-}
-
-    public void addTask() {
-        logger.info("Начало добавления новой задачи");
-
-        System.out.println("Введите название задачи:");
-        String name = scanner.nextLine().trim();
-        System.out.println("Введите описание задачи:");
-        String description = scanner.nextLine().trim();
-        System.out.println("Введите статус задачи:");
-        String status = scanner.nextLine().trim();
-
-        long id = tasks.size() + 1;
 
 
-        Task newTask = new Task(id, name, description, status, currentUser.getUsername(), currentUser.getId(), formattedDateTime, "");
-        tasks.add(newTask);
-        System.out.println("Новая задача добавлена:");
-        System.out.println(newTask);
-
-        saveTasksToFile();
-
-        logger.info("Завершение добавления новой задачи");
-    }
     public void addTask(Task task) {
         tasks.add(task);
-    }
-
-    public void editTask() {
-        logger.info("Начало редактирования новой задачи");
-
-        System.out.println("Введите ID задачи для редактирования:");
-        if (scanner.hasNextLong()) {
-            long taskId = scanner.nextLong();
-            scanner.nextLine();
-
-          Task taskToEdit = null;
-            for (Task task : tasks) {
-                if (task.getId() == taskId && task.getUsername().equals(currentUser.getUsername())) {
-                    taskToEdit = task;
-                    break;
-                }
-            }
-
-            if (taskToEdit != null) {
-                System.out.println("Введите новое название задачи:");
-                String name = scanner.nextLine().trim();
-                System.out.println("Введите новое описание задачи:");
-                String description = scanner.nextLine().trim();
-                System.out.println("Введите новый статус задачи:");
-                String status = scanner.nextLine().trim();
-
-                // Обновляем данные задачи
-                taskToEdit.setName(name);
-                taskToEdit.setDescription(description);
-                taskToEdit.setStatus(status);
-                taskToEdit.setUpdatedAt(formattedDateTime);
-
-                System.out.println("Задача успешно отредактирована:");
-                System.out.println(taskToEdit);
-
-                saveTasksToFile(); // Сохраняем обновленный список задач в файл
-            } else {
-                System.out.println("Задача с ID " + taskId + " не найдена или не принадлежит текущему пользователю.");
-                logger.debug("Задача с ID " + taskId + " не найдена или не принадлежит текущему пользователю.");
-            }
-        } else {
-            System.out.println("Некорректный формат ID задачи.");
-            logger.error("Завершение редактирования  новой задачи");
-            scanner.nextLine();
-        }
-
-        logger.info("Завершение редактирования  новой задачи");
-    }
-
-    public void removeTask() {
-        System.out.println("Введите ID задачи для удаления:");
-        if (scanner.hasNextLong()) {
-            long taskId = scanner.nextLong();
-            scanner.nextLine(); // Считываем символ новой строки после считывания числа
-
-            boolean removed = tasks.removeIf(task -> task.getId() == taskId && task.getUsername().equals(currentUser.getUsername()));
-            if (removed) {
-                System.out.println("Задача с ID " + taskId + " удалена.");
-                logger.debug("Задача с ID " + taskId + " удалена.");
-                saveTasksToFile();
-            } else {
-                System.out.println("Задача с ID " + taskId + " не найдена или не принадлежит текущему пользователю.");
-                logger.debug("Задача с ID " + taskId + " не найдена или не принадлежит текущему пользователю.");
-            }
-        } else {
-            System.out.println("Некорректный формат ID задачи.");
-            logger.debug("Некорректный формат ID задачи.");
-            scanner.nextLine();
-        }
+        saveTasksToFile();
     }
 
     private List<Task> loadTasksFromFile() {
@@ -157,37 +42,121 @@ public void displayTasks(boolean testMode) {
             } else {
                 return new ArrayList<>();
             }
-
         } catch (IOException e) {
-            //System.out.println("Ошибка при чтении файла задач: " + e.getMessage());
-            logger.error("Ошибка при чтении файла задач: " + e.getMessage());
+            LogManager.getInstance().logError("Ошибка при чтении файла задач: ", e);
             return new ArrayList<>();
         }
     }
 
-        public void saveTasksToFile() {
+    public void saveTasksToFile() {
         try {
             File file = new File(TASKS_FILE);
             ObjectMapper mapper = new ObjectMapper();
             mapper.writeValue(file, tasks);
-            //System.out.println("Задачи успешно сохранены в файл " + TASKS_FILE);
-            logger.info("Задачи успешно сохранены в файл " + TASKS_FILE);
+            LogManager.getInstance().logInfo("Задачи успешно сохранены в файл " + TASKS_FILE);
         } catch (IOException e) {
-            //System.out.println("Ошибка при сохранении файла задач: " + e.getMessage());
-            logger.error("Ошибка при сохранении файла задач: " + e.getMessage());
+            LogManager.getInstance().logError("Ошибка при сохранении файла задач: ", e);
         }
     }
-    public List<Task> getTasks() {
-        return loadTasksFromFile();
+
+
+
+    public static void UserRegistration(String username, String password,boolean testMode) {
+        User testUser = new User(username, password);
+        DataSource dataSource = DataSourceFactory.createDataSource(testMode); // true для H2, замените в зависимости от конфигурации
+        dataSource.saveUser(testUser);
+        LogManager.getInstance().logInfo("User registered: " + username);
     }
-    public void removeTask(long taskId) {
+
+    public static void UserLogin(String username, String password,boolean testMode) {
+        LogManager.getInstance().logInfo("Начало UserLogin");
+        DataSource dataSource = DataSourceFactory.createDataSource(testMode); // true для H2, замените в зависимости от конфигурации
+        User currentUser = dataSource.findUserByUsernameAndPassword(username, password);
+        if (currentUser == null) {
+            LogManager.getInstance().logInfo("Пользователь не найден или неверный пароль.");
+        } else {
+            LogManager.getInstance().logInfo("Вход выполнен для пользователя: " + currentUser.getUsername());
+        }
+        LogManager.getInstance().logInfo("Завершение UserLogin");
+    }
+
+    public static void TaskCreation(String username, String password, long id, String taskName, String description, String status,boolean testMode) {
+        LogManager.getInstance().logInfo("Начало TaskCreation сохраним " + taskName);
+
+        DataSource dataSource = DataSourceFactory.createDataSource(testMode);
+        User currentUser = dataSource.findUserByUsernameAndPassword(username, password);
+        if (currentUser == null) {
+            LogManager.getInstance().logInfo("Пользователь не найден или неверный пароль.");
+            return;
+        }
+
+        Task testTask = new Task(
+                id, taskName, description, status,
+                currentUser.getUsername(), currentUser.getId(),
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy HH:mm:ss")),
+                ""
+        );
+        LogManager.getInstance().logInfo("Вызов saveTask ");
+        dataSource.saveTask(testTask);
+
+        boolean taskFound = false;
+        for (Task task : dataSource.getTasksForUser(username)) {
+            if (task.getName().equals(taskName) && task.getUsername().equals(currentUser.getUsername())) {
+                taskFound = true;
+                LogManager.getInstance().logInfo("Тестовая задача успешно добавлена: " + task);
+                break;
+            }
+        }
+
+        if (!taskFound) {
+            LogManager.getInstance().logInfo("Не удалось добавить тестовую задачу.");
+        }
+
+        LogManager.getInstance().logInfo("Завершение TaskCreation");
+    }
+
+    public static void TaskViewing(String username, String password,boolean testMode) {
+        LogManager.getInstance().logInfo("Начало TaskViewing");
+
+        DataSource dataSource = DataSourceFactory.createDataSource(testMode);
+        User currentUser = dataSource.findUserByUsernameAndPassword(username, password);
+        if (currentUser == null) {
+            LogManager.getInstance().logInfo("Пользователь не найден или неверный пароль.");
+            return;
+        }
+
+        List<Task> tasks = dataSource.getTasksForUser(username);
+        for (Task task : tasks) {
+            LogManager.getInstance().logInfo("Задачa: " + task);
+        }
+
+        LogManager.getInstance().logInfo("Завершение TaskViewing");
+    }
+
+    public static void TaskDeletion(String username, String password, long taskId, boolean testMode) {
+        LogManager.getInstance().logInfo("Начало теста удаления задач");
+
+        DataSource dataSource = DataSourceFactory.createDataSource(testMode);
+        User currentUser = dataSource.findUserByUsernameAndPassword(username, password);
+        if (currentUser == null) {
+            LogManager.getInstance().logInfo("Пользователь не найден или неверный пароль.");
+            return;
+        }
+
+        dataSource.removeTask(taskId, currentUser);
+
+        LogManager.getInstance().logInfo("Завершение теста удаления задач");
+    }
+
+
+    public void removeTask(long taskId,User currentUser) {
         boolean removed = tasks.removeIf(task -> task.getId() == taskId && task.getUsername().equals(currentUser.getUsername()));
+
         if (removed) {
-            //System.out.println("Задача с ID " + taskId + " удалена.");
-            logger.debug("Задача с ID " + taskId + " удалена.");
+            LogManager.getInstance().logInfo("Задача с ID " + taskId + " удалена.");
             saveTasksToFile();
         } else {
-            logger.debug("Задача с ID " + taskId + " не найдена или не принадлежит текущему пользователю.");
+            LogManager.getInstance().logInfo("Задача с ID " + taskId + " не найдена или не принадлежит текущему пользователю.");
         }
     }
 

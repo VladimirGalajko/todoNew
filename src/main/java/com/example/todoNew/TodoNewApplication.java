@@ -1,94 +1,29 @@
 package com.example.todoNew;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.Scanner;
 
 public class TodoNewApplication {
-    private static final Logger logger = LoggerFactory.getLogger(TaskManager.class);
-
-
     public static void main(String[] args) {
-        boolean testMode = false;
+        boolean useH2 = true;
+        DataSource dataSource = DataSourceFactory.createDataSource(useH2);
 
-        if (testMode) {
-            TestManager.testUserRegistration("testuser", "testpassword");
-            TestManager.testUserLogin("testuser", "testpassword");
-            TestManager.testTaskCreation("testuser", "testpassword", 1, "Test Task", "This is a test task.", "pending");
-            TestManager.testTaskViewing("testuser", "testpassword");
-            TestManager.testTaskDeletion("testuser", "testpassword", 1);
-            return;
-        }
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Выберите действие:");
-        System.out.println("1. Вход");
-        System.out.println("2. Регистрация");
+        LogManager.getInstance().setLogDestination(LogManager.LogDestination.LOGGER_ONLY); // LOGGER_ONLY  SYSTEM_OUT_ONLY ALL
 
 
-        int action = Integer.parseInt(scanner.nextLine().trim());
+        User user = new User("testuser", "testpassword");
+        dataSource.saveUser(user);
 
-        User currentUser = null;
-        if (action == 1) {
-            System.out.println("Введите имя пользователя:");
-            String username = scanner.nextLine().trim();
+//        User foundUser = dataSource.findUserByUsernameAndPassword("testuser", "testpassword");
+//        System.out.println("Found user: " + foundUser);
 
-            System.out.println("Введите пароль:");
-            String password = scanner.nextLine().trim();
 
-            currentUser = JsonFileManager.findUserByUsernameAndPassword(username, password);
-            if (currentUser == null) {
-                System.out.println("Пользователь не найден или неверный пароль.");
-                return;
-            } else {
-                System.out.println("Вход выполнен для пользователя: " + currentUser.getUsername());
-            }
-        } else if (action == 2) {
-            System.out.println("Введите имя пользователя для регистрации:");
-            String username = scanner.nextLine().trim();
 
-            System.out.println("Введите пароль для нового пользователя:");
-            String password = scanner.nextLine().trim();
+        TaskManager.UserRegistration("testuser", "testpassword",useH2);
+        TaskManager.UserLogin("testuser", "testpassword",useH2);
 
-            currentUser = new User(username, password);
-            JsonFileManager.saveUser(currentUser,testMode);
-            System.out.println("Пользователь успешно зарегистрирован: " + username);
-        }  else {
-            System.out.println("Неверный выбор действия.");
-            return;
-        }
-
-        TaskManager taskManager = new TaskManager(scanner, currentUser);
-        while (true) {
-            System.out.println("Выберите действие:");
-            System.out.println("1. Просмотр задач");
-            System.out.println("2. Добавление задачи");
-            System.out.println("3. Редактирование задачи");
-            System.out.println("4. Удаление задачи");
-            System.out.println("5. Выход");
-            int choice = Integer.parseInt(scanner.nextLine().trim());
-
-            switch (choice) {
-                case 1:
-                    taskManager.displayTasks(testMode);
-                    break;
-                case 2:
-                    taskManager.addTask();
-                    break;
-                case 3:
-                    taskManager.editTask();
-                    break;
-                case 4:
-                    taskManager.removeTask();
-                    break;
-                case 5:
-                    System.out.println("Выход из приложения.");
-                    return;
-                default:
-                    System.out.println("Неверный выбор действия.");
-            }
-        }
+        TaskManager.TaskCreation("testuser", "testpassword", 5, "пятая задача", "This is a test task 5.", "pending",useH2);
+        TaskManager.TaskCreation("testuser", "testpassword", 4, "четвертая задача", "This is a test task 4.", "pending",useH2);
+        TaskManager.TaskCreation("testuser", "testpassword", 8, "восьмая задача", "This is a test task 8", "pending",useH2);
+        TaskManager.TaskDeletion("testuser", "testpassword", 4,useH2);
+        TaskManager.TaskDeletion("testuser", "testpassword", 5,useH2);
+        TaskManager.TaskViewing("testuser", "testpassword",useH2);
     }
-
 }

@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @ToString
@@ -21,6 +19,7 @@ public class Task {
 
     public Task() {
     }
+
     public Task(long id, String name, String description, String status, String username, long userId, String createdAt, String updatedAt) {
         this.id = id;
         this.name = name;
@@ -31,5 +30,4 @@ public class Task {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
-
 }

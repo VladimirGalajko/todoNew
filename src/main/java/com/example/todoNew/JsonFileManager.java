@@ -4,9 +4,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,21 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JsonFileManager {
-    private static final Logger logger = LoggerFactory.getLogger(TestManager.class);
+
     private static final String USERS_FILE = "users.json";
-    private static List<User> users = new ArrayList<>();
+    private static final List<User> users = new ArrayList<>();
 
     static {
         loadUsers();
     }
 
-    public static void saveUser(User user, boolean testMode) {
+    public static void saveUser(User user) {
         for (User existingUser : users) {
             if (existingUser.getUsername().equals(user.getUsername())) {
-                if (!testMode) {
-                    System.out.println("Пользователь с именем '" + user.getUsername() + "' уже существует.");
-                }
-                logger.info("Пользователь с именем '" + user.getUsername() + "' уже существует.");
+                LogManager.getInstance().logInfo("Пользователь с именем '" + user.getUsername() + "' уже существует.");
                 return;
             }
         }
@@ -39,18 +33,16 @@ public class JsonFileManager {
 
     private static void loadUsers() {
         JSONParser jsonParser = new JSONParser();
-
         try (FileReader reader = new FileReader(USERS_FILE)) {
             Object obj = jsonParser.parse(reader);
             JSONArray userList = (JSONArray) obj;
-
             for (Object userObj : userList) {
                 JSONObject userJson = (JSONObject) userObj;
                 User user = User.fromJsonObject(userJson);
                 users.add(user);
             }
         } catch (IOException | ParseException e) {
-            e.printStackTrace();
+            LogManager.getInstance().logError("Ошибка при загрузке пользователей: ", e);
         }
     }
 
@@ -59,21 +51,18 @@ public class JsonFileManager {
         for (User user : users) {
             userList.add(user.toJsonObject());
         }
-
         try (FileWriter file = new FileWriter(USERS_FILE)) {
             file.write(userList.toJSONString());
             file.flush();
         } catch (IOException e) {
-            e.printStackTrace();
+            LogManager.getInstance().logError("Ошибка при сохранении пользователей: " , e);
         }
     }
 
     public static User findUserByUsernameAndPassword(String username, String password) {
-        for (User user : users) {
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                return user;
-            }
-        }
-        return null;
+        return users.stream()
+                .filter(user -> user.getUsername().equals(username) && user.getPassword().equals(password))
+                .findFirst()
+                .orElse(null);
     }
 }
