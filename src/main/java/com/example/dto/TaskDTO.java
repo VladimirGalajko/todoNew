@@ -16,6 +16,6 @@ public class TaskDTO {
     private String description;
     private String status;
     private String username;
-
+    private String password;
 }
 

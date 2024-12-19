@@ -10,8 +10,10 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Component("h2DataSource")
 @Profile("h2")
@@ -30,7 +32,7 @@ public class H2DataSource implements DataSource {
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement()) {
             stmt.execute("CREATE TABLE IF NOT EXISTS users (id BIGINT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(255) UNIQUE, password VARCHAR(255))");
-            stmt.execute("CREATE TABLE IF NOT EXISTS tasks (id VARCHAR(36) PRIMARY KEY, name VARCHAR(255), description VARCHAR(255), status VARCHAR(255), createdAt VARCHAR(255), updatedAt VARCHAR(255), username VARCHAR(255), userId BIGINT)");
+            stmt.execute("CREATE TABLE IF NOT EXISTS tasks (id VARCHAR(50) PRIMARY KEY, name VARCHAR(255), description VARCHAR(255), status VARCHAR(255), createdAt VARCHAR(255), updatedAt VARCHAR(255), username VARCHAR(255))");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -67,8 +69,19 @@ public class H2DataSource implements DataSource {
 
     @Override
     public void saveTask(Task task) {
+        if (task.getId() == null || task.getId().isEmpty()) {
+            task.setId(UUID.randomUUID().toString());
+        }
+        if (task.getCreatedAt() == null || task.getCreatedAt().isEmpty()) {
+            task.setCreatedAt(LocalDateTime.now().toString());
+        }
+        if (task.getUpdatedAt() == null || task.getUpdatedAt().isEmpty()) {
+            task.setUpdatedAt(LocalDateTime.now().toString());
+        }
+
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("INSERT INTO tasks (id, name, description, status, createdAt, updatedAt, username, userId) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
+             PreparedStatement stmt = conn.prepareStatement(
+                     "INSERT INTO tasks (id, name, description, status, createdAt, updatedAt, username) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
             stmt.setString(1, task.getId());
             stmt.setString(2, task.getName());
             stmt.setString(3, task.getDescription());
@@ -76,10 +89,10 @@ public class H2DataSource implements DataSource {
             stmt.setString(5, task.getCreatedAt());
             stmt.setString(6, task.getUpdatedAt());
             stmt.setString(7, task.getUsername());
-//            stmt.setLong(8, task.getUserId());
             stmt.executeUpdate();
+            logger.info("Задача сохранена: {}", task.getName());
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Ошибка при сохранении задачи: {}", e.getMessage(), e);
         }
     }
 
@@ -91,25 +104,23 @@ public class H2DataSource implements DataSource {
             stmt.setString(1, username);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-
-             var task = Task.builder()
+                Task task = Task.builder()
+                        .id(rs.getString("id"))
                         .name(rs.getString("name"))
                         .description(rs.getString("description"))
                         .status(rs.getString("status"))
                         .username(rs.getString("username"))
+                        .createdAt(rs.getString("createdAt"))
+                        .updatedAt(rs.getString("updatedAt"))
                         .build();
-                if (task.getUsername() == null) {
-                    logger.info("username null -> continue");
-                    continue;
-                }
                 tasks.add(task);
-
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Ошибка при получении задач: {}", e.getMessage(), e);
         }
         return tasks;
     }
+
 
     @Override
     public boolean removeTask(String taskId) {

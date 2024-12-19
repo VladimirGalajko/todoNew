@@ -1,46 +1,49 @@
 package com.example.model;
 
 
-import lombok.Getter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.Data;
+
+import lombok.NoArgsConstructor;
 import org.json.simple.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
-@Getter
+@Data
+@NoArgsConstructor
+
 public class User {
-    private final long id;
-    private final String username;
-    private final String password;
+    private long id;
+    private String username;
+    private String password;
 
-    private static final Logger logger = LoggerFactory.getLogger(User.class);
-    public User(String username, String password) {
-        this.id = System.currentTimeMillis();
-        this.username = username;
-        this.password = password;
-    }
-
-
-    public User(long id, String username, String password) {
+    @JsonCreator
+    public User(@JsonProperty("id") long id,
+                @JsonProperty("username") String username,
+                @JsonProperty("password") String password) {
         this.id = id;
         this.username = username;
         this.password = password;
     }
-
-
-    public static User fromJsonObject(JSONObject obj) {
-        long id = (long) obj.get("id");
-        String username = (String) obj.get("username");
-        String password = (String) obj.get("password");
-        return new User(id, username, password);
+    public User(String username, String password) {
+        this(System.currentTimeMillis(), username, password);
     }
 
 
     public JSONObject toJsonObject() {
-        JSONObject obj = new JSONObject();
-        obj.put("id", this.id);
-        obj.put("username", this.username);
-        obj.put("password", this.password);
-        return obj;
+        JSONObject json = new JSONObject();
+        json.put("id", id);
+        json.put("username", username);
+        json.put("password", password);
+        return json;
+    }
+
+    public static User fromJsonObject(JSONObject jsonObject) {
+        long id = (long) jsonObject.get("id");
+        String username = (String) jsonObject.get("username");
+        String password = (String) jsonObject.get("password");
+        return new User(id, username, password);
     }
 }

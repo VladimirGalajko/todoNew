@@ -9,22 +9,22 @@ import com.example.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Service
-public class TaskManager implements TaskStorage {
+public class TaskService implements TaskStorage {
 
     private final DataSource dataSource;
 
-    public TaskManager(DataSource dataSource) {
+    public TaskService(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
     private static final Logger logger = LoggerFactory.getLogger(AuthService.class);
-    @Override
-    public void addTask(Task task) {
-        dataSource.saveTask(task);
-    }
+
 
     @Override
     public boolean removeTask(String taskId) {
@@ -43,4 +43,13 @@ public class TaskManager implements TaskStorage {
      public User findUserByUsernameAndPassword(String username, String password) {
         return dataSource.findUserByUsernameAndPassword(username, password);
     }
+
+    public void createTask(Task task) {
+        task.setId(UUID.randomUUID().toString());
+        String currentDateTime = LocalDateTime.now().toString();
+        task.setCreatedAt(currentDateTime);
+        task.setUpdatedAt(currentDateTime);
+        dataSource.saveTask(task);
+    }
+
 }

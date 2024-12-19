@@ -19,16 +19,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Component;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 @Component("fileDataSource")
 @Profile("file")
 public class FileDataSource implements DataSource {
+
     private static final Logger logger = LoggerFactory.getLogger(FileDataSource.class);
     private static final String USERS_FILE = "users.json";
-    private static final String TASKS_FILE = "task.json";
+    private static final String TASKS_FILE = "tasks.json";
 
+    private final ObjectMapper objectMapper = new ObjectMapper();
     private final List<User> users = new ArrayList<>();
     private final List<Task> tasks = new ArrayList<>();
-
 
     public FileDataSource() {
         loadUsers();
@@ -37,11 +52,9 @@ public class FileDataSource implements DataSource {
 
     @Override
     public void saveUser(User user) {
-        for (User existingUser : users) {
-            if (existingUser.getUsername().equals(user.getUsername())) {
-                logger.info("Пользователь с именем '" + user.getUsername() + "' уже существует.");
-                return;
-            }
+        if (users.stream().anyMatch(u -> u.getUsername().equals(user.getUsername()))) {
+            logger.info("Пользователь с именем '{}' уже существует.", user.getUsername());
+            return;
         }
         users.add(user);
         saveUsersToFile();
@@ -59,87 +72,65 @@ public class FileDataSource implements DataSource {
     public void saveTask(Task task) {
         tasks.add(task);
         saveTasksToFile();
-        logger.info("Задача сохранена: " + task.getName());
+        logger.info("Задача '{}' сохранена.", task.getName());
     }
-
-
 
     @Override
     public boolean removeTask(String taskId) {
-        tasks.removeIf(task -> Objects.equals(task.getId(), taskId));
-        saveTasksToFile();
-        logger.info("Задача с ID {} удалена", taskId);
-        return true;
+        boolean removed = tasks.removeIf(task -> Objects.equals(task.getId(), taskId));
+        if (removed) {
+            saveTasksToFile();
+            logger.info("Задача с ID '{}' удалена.", taskId);
+        }
+        return removed;
     }
 
     @Override
     public List<Task> getTasksForUser(String username) {
-        List<Task> userTasks = new ArrayList<>();
-        for (Task task : tasks) {
-            if (task.getUsername().equals(username)) {
-                userTasks.add(task);
-            }
-        }
-        return userTasks;
+        return tasks.stream()
+                .filter(task -> task.getUsername().equals(username))
+                .toList();
     }
 
     private void loadUsers() {
-        JSONParser jsonParser = new JSONParser();
-        try (FileReader reader = new FileReader(USERS_FILE)) {
-            JSONArray userList = (JSONArray) jsonParser.parse(reader);
-            for (Object userObj : userList) {
-                JSONObject userJson = (JSONObject) userObj;
-                users.add(User.fromJsonObject(userJson));
+        try {
+            File file = new File(USERS_FILE);
+            if (file.exists()) {
+                users.addAll(objectMapper.readValue(file, new TypeReference<List<User>>() {}));
+                logger.info("Пользователи успешно загружены из файла.");
             }
-            logger.info("Пользователи успешно загружены из файла.");
-        } catch (IOException | ParseException e) {
-            logger.info("Ошибка при загрузке пользователей: ", e);
+        } catch (IOException e) {
+            logger.warn("Ошибка при загрузке пользователей: {}", e.getMessage());
         }
     }
 
     private void saveUsersToFile() {
-        JSONArray userList = new JSONArray();
-        for (User user : users) {
-            userList.add(user.toJsonObject());
-        }
-        try (FileWriter file = new FileWriter(USERS_FILE)) {
-            file.write(userList.toJSONString());
-            file.flush();
+        try {
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(USERS_FILE), users);
             logger.info("Пользователи успешно сохранены в файл.");
         } catch (IOException e) {
-            logger.info("Ошибка при сохранении пользователей: ", e);
+            logger.error("Ошибка при сохранении пользователей: {}", e.getMessage());
         }
     }
 
     private void loadTasks() {
-        JSONParser jsonParser = new JSONParser();
-        try (FileReader reader = new FileReader(TASKS_FILE)) {
-            JSONArray taskList = (JSONArray) jsonParser.parse(reader);
-            for (Object taskObj : taskList) {
-                JSONObject taskJson = (JSONObject) taskObj;
-                tasks.add(Task.fromJsonObject(taskJson));
+        try {
+            File file = new File(TASKS_FILE);
+            if (file.exists()) {
+                tasks.addAll(objectMapper.readValue(file, new TypeReference<List<Task>>() {}));
+                logger.info("Задачи успешно загружены из файла.");
             }
-            logger.info("Задачи успешно загружены из файла.");
-        } catch (IOException | ParseException e) {
-            logger.info("Ошибка при загрузке задач: ", e);
+        } catch (IOException e) {
+            logger.warn("Ошибка при загрузке задач: {}", e.getMessage());
         }
     }
 
     private void saveTasksToFile() {
-        JSONArray taskList = new JSONArray();
-        for (Task task : tasks) {
-            taskList.add(task.toJsonObject());
-        }
-        try (FileWriter file = new FileWriter(TASKS_FILE)) {
-            file.write(taskList.toJSONString());
-            file.flush();
+        try {
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(TASKS_FILE), tasks);
             logger.info("Задачи успешно сохранены в файл.");
         } catch (IOException e) {
-            logger.info("Ошибка при сохранении задач: ", e);
+            logger.error("Ошибка при сохранении задач: {}", e.getMessage());
         }
     }
 }
-
-
-
-
