@@ -6,43 +6,43 @@ import com.example.model.Task;
 import com.example.model.User;
 import com.example.service.AuthService;
 import com.example.service.TaskService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.example.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-
+@Slf4j
 @RestController
 @RequestMapping("/tasks")
 public class TaskController {
-    private static final Logger logger = LoggerFactory.getLogger(TaskController.class);
+
     @Autowired
     private AuthService authService;
+    private final UserService userService;
 
     private final TaskService taskService;
 
-    public TaskController(TaskService taskService) {
+    public TaskController(TaskService taskService, UserService userService) {
         this.taskService = taskService;
+        this.userService = userService;
     }
 
     @PostMapping("/register")
     public String registerUser(@RequestBody UserDTO userDTO) {
-        logger.info("Регистрация пользователя: {}", userDTO);
+        log.info("Регистрация пользователя: {}", userDTO);
         User user = new User(userDTO.getUsername(), userDTO.getPassword());
-        taskService.addUser(user);
-        logger.info("Пользователь зарегистрирован: {}", user);
+        userService.addUser(user);
+        log.info("Пользователь зарегистрирован: {}", user);
         return "User registered: " + userDTO.getUsername();
     }
 
     @PostMapping("/login")
     public String loginUser(@RequestBody UserDTO userDTO) {
-        User user = taskService.findUserByUsernameAndPassword(userDTO.getUsername(), userDTO.getPassword());
+        User user = userService.findUserByUsernameAndPassword(userDTO.getUsername(), userDTO.getPassword());
         if (user == null) {
             return "Invalid username or password.";
         }
@@ -59,11 +59,9 @@ public class TaskController {
         }
 
         try {
-            logger.info("Получен запрос на создание задачи: {}", taskDTO);
-
-            // Преобразуем TaskDTO в Task
+            log.info("Получен запрос на создание задачи: {}", taskDTO);
             Task task = new Task();
-            task.setId(UUID.randomUUID().toString()); // Генерируем уникальный ID
+            task.setId(UUID.randomUUID().toString());
             task.setName(taskDTO.getName());
             task.setDescription(taskDTO.getDescription());
             task.setStatus(taskDTO.getStatus());
@@ -71,15 +69,14 @@ public class TaskController {
             task.setCreatedAt(LocalDateTime.now().toString());
             task.setUpdatedAt(LocalDateTime.now().toString());
 
-            // Сохраняем задачу через сервис
             taskService.createTask(task);
 
             return ResponseEntity.ok("Задача успешно создана. id: " + task.getId());
         } catch (IllegalArgumentException e) {
-            logger.error("Ошибка: {}", e.getMessage());
+            log.error("Ошибка: {}", e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
-            logger.error("Внутренняя ошибка сервера: {}", e.getMessage(), e);
+            log.error("Внутренняя ошибка сервера: {}", e.getMessage(), e);
             return ResponseEntity.status(500).body("Внутренняя ошибка сервера.");
         }
     }

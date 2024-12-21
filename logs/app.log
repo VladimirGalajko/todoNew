@@ -1,419 +1,92 @@
-2024-12-19T03:16:15.871+02:00  INFO 5616 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 5616 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T03:16:15.873+02:00  INFO 5616 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T03:16:16.909+02:00  INFO 5616 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T03:16:16.928+02:00  INFO 5616 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T03:16:16.928+02:00  INFO 5616 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T03:16:16.992+02:00  INFO 5616 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T03:16:16.993+02:00  INFO 5616 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1067 ms
-2024-12-19T03:16:17.076+02:00  INFO 5616 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Пользователи успешно загружены из файла.
-2024-12-19T03:16:17.080+02:00  INFO 5616 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T03:16:17.443+02:00  INFO 5616 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T03:16:17.454+02:00  INFO 5616 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.1 seconds (process running for 2.494)
-2024-12-19T03:16:23.612+02:00  INFO 5616 --- [myproject-hw] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T03:16:23.613+02:00  INFO 5616 --- [myproject-hw] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T03:16:23.614+02:00  INFO 5616 --- [myproject-hw] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-12-19T03:19:15.980+02:00  INFO 5616 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T03:19:15.986+02:00  INFO 5616 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T03:19:21.646+02:00  INFO 7300 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 7300 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T03:19:21.650+02:00  INFO 7300 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T03:19:22.830+02:00  INFO 7300 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T03:19:22.848+02:00  INFO 7300 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T03:19:22.849+02:00  INFO 7300 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T03:19:22.915+02:00  INFO 7300 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T03:19:22.916+02:00  INFO 7300 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1215 ms
-2024-12-19T03:19:22.999+02:00  INFO 7300 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Пользователи успешно загружены из файла.
-2024-12-19T03:19:23.003+02:00  INFO 7300 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T03:19:23.448+02:00  INFO 7300 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T03:19:23.460+02:00  INFO 7300 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.358 seconds (process running for 2.751)
-2024-12-19T03:19:26.752+02:00  INFO 7300 --- [myproject-hw] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T03:19:26.753+02:00  INFO 7300 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T03:19:26.754+02:00  INFO 7300 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-12-19T03:19:26.841+02:00  INFO 7300 --- [myproject-hw] [http-nio-8080-exec-1] com.example.controllers.TaskController   : false
-2024-12-19T03:23:38.634+02:00  INFO 7300 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T03:23:38.639+02:00  INFO 7300 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T03:23:42.306+02:00  INFO 4944 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 4944 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T03:23:42.308+02:00  INFO 4944 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T03:23:43.370+02:00  INFO 4944 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T03:23:43.388+02:00  INFO 4944 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T03:23:43.389+02:00  INFO 4944 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T03:23:43.449+02:00  INFO 4944 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T03:23:43.450+02:00  INFO 4944 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1088 ms
-2024-12-19T03:23:43.535+02:00  INFO 4944 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Пользователи успешно загружены из файла.
-2024-12-19T03:23:43.538+02:00  INFO 4944 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T03:23:43.881+02:00  INFO 4944 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T03:23:43.891+02:00  INFO 4944 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.088 seconds (process running for 2.474)
-2024-12-19T03:23:47.108+02:00  INFO 4944 --- [myproject-hw] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T03:23:47.108+02:00  INFO 4944 --- [myproject-hw] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T03:23:47.109+02:00  INFO 4944 --- [myproject-hw] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-12-19T03:23:47.221+02:00  INFO 4944 --- [myproject-hw] [http-nio-8080-exec-2] com.example.controllers.TaskController   : false
-2024-12-19T03:23:56.059+02:00  INFO 4944 --- [myproject-hw] [http-nio-8080-exec-3] com.example.controllers.TaskController   : false
-2024-12-19T03:24:39.160+02:00  INFO 4944 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T03:24:39.165+02:00  INFO 4944 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T03:24:43.131+02:00  INFO 8528 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 8528 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T03:24:43.134+02:00  INFO 8528 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T03:24:44.183+02:00  INFO 8528 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T03:24:44.199+02:00  INFO 8528 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T03:24:44.200+02:00  INFO 8528 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T03:24:44.259+02:00  INFO 8528 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T03:24:44.260+02:00  INFO 8528 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1074 ms
-2024-12-19T03:24:44.348+02:00  INFO 8528 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Пользователи успешно загружены из файла.
-2024-12-19T03:24:44.351+02:00  INFO 8528 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T03:24:44.695+02:00  INFO 8528 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T03:24:44.705+02:00  INFO 8528 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.093 seconds (process running for 2.476)
-2024-12-19T03:24:50.091+02:00  INFO 8528 --- [myproject-hw] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T03:24:50.092+02:00  INFO 8528 --- [myproject-hw] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T03:24:50.093+02:00  INFO 8528 --- [myproject-hw] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2024-12-19T03:24:50.183+02:00  INFO 8528 --- [myproject-hw] [http-nio-8080-exec-2] com.example.controllers.TaskController   : false
-2024-12-19T03:42:09.198+02:00  INFO 8528 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T03:42:09.205+02:00  INFO 8528 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T03:42:13.556+02:00  INFO 3400 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 3400 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T03:42:13.559+02:00  INFO 3400 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T03:42:14.689+02:00  INFO 3400 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T03:42:14.709+02:00  INFO 3400 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T03:42:14.709+02:00  INFO 3400 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T03:42:14.787+02:00  INFO 3400 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T03:42:14.788+02:00  INFO 3400 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1179 ms
-2024-12-19T03:42:14.908+02:00  INFO 3400 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Пользователи успешно загружены из файла.
-2024-12-19T03:42:14.915+02:00  INFO 3400 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T03:42:15.331+02:00  INFO 3400 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T03:42:15.340+02:00  INFO 3400 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.28 seconds (process running for 2.665)
-2024-12-19T03:42:48.820+02:00  INFO 3400 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T03:42:48.827+02:00  INFO 3400 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T10:33:01.714+02:00  INFO 6904 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 6904 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T10:33:01.718+02:00  INFO 6904 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T10:33:02.768+02:00  INFO 6904 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T10:33:02.786+02:00  INFO 6904 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T10:33:02.787+02:00  INFO 6904 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T10:33:02.861+02:00  INFO 6904 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T10:33:02.861+02:00  INFO 6904 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1088 ms
-2024-12-19T10:33:02.997+02:00  WARN 6904 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Ошибка при загрузке пользователей: Cannot construct instance of `com.example.model.User` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 3] (through reference chain: java.util.ArrayList[0])
-2024-12-19T10:33:03.352+02:00  INFO 6904 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T10:33:03.365+02:00  INFO 6904 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.178 seconds (process running for 2.669)
-2024-12-19T10:33:10.520+02:00  INFO 6904 --- [myproject-hw] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T10:33:10.520+02:00  INFO 6904 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T10:33:10.521+02:00  INFO 6904 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-12-19T10:34:06.956+02:00  INFO 6904 --- [myproject-hw] [http-nio-8080-exec-7] com.example.datasource.FileDataSource    : Задачи успешно сохранены в файл.
-2024-12-19T10:34:06.956+02:00  INFO 6904 --- [myproject-hw] [http-nio-8080-exec-7] com.example.datasource.FileDataSource    : Задача 'name 3Task' сохранена.
-2024-12-19T10:38:34.685+02:00  INFO 6904 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T10:38:34.691+02:00  INFO 6904 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T10:40:50.715+02:00  INFO 8844 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 8844 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T10:40:50.717+02:00  INFO 8844 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T10:40:51.796+02:00  INFO 8844 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T10:40:51.816+02:00  INFO 8844 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T10:40:51.816+02:00  INFO 8844 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T10:40:51.890+02:00  INFO 8844 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T10:40:51.891+02:00  INFO 8844 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1114 ms
-2024-12-19T10:40:52.020+02:00  WARN 8844 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Ошибка при загрузке пользователей: Cannot construct instance of `com.example.model.User` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 3] (through reference chain: java.util.ArrayList[0])
-2024-12-19T10:40:52.033+02:00  INFO 8844 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T10:40:52.372+02:00  INFO 8844 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T10:40:52.381+02:00  INFO 8844 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.168 seconds (process running for 2.604)
-2024-12-19T10:40:54.990+02:00  INFO 8844 --- [myproject-hw] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T10:40:54.990+02:00  INFO 8844 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T10:40:54.991+02:00  INFO 8844 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-12-19T10:41:03.821+02:00  INFO 8844 --- [myproject-hw] [http-nio-8080-exec-4] com.example.datasource.FileDataSource    : Задачи успешно сохранены в файл.
-2024-12-19T10:41:03.822+02:00  INFO 8844 --- [myproject-hw] [http-nio-8080-exec-4] com.example.datasource.FileDataSource    : Задача 'name 3Task' сохранена.
-2024-12-19T10:42:40.691+02:00  INFO 8844 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T10:42:40.696+02:00  INFO 8844 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T10:44:36.569+02:00  INFO 12212 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 12212 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T10:44:36.571+02:00  INFO 12212 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T10:44:37.756+02:00  INFO 12212 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T10:44:37.787+02:00  INFO 12212 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T10:44:37.787+02:00  INFO 12212 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T10:44:37.860+02:00  INFO 12212 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T10:44:37.861+02:00  INFO 12212 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1213 ms
-2024-12-19T10:44:38.010+02:00  WARN 12212 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Ошибка при загрузке пользователей: Cannot construct instance of `com.example.model.User` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 3] (through reference chain: java.util.ArrayList[0])
-2024-12-19T10:44:38.019+02:00  INFO 12212 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T10:44:38.364+02:00  INFO 12212 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T10:44:38.374+02:00  INFO 12212 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.317 seconds (process running for 2.743)
-2024-12-19T10:44:57.705+02:00  INFO 12212 --- [myproject-hw] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T10:44:57.705+02:00  INFO 12212 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T10:44:57.706+02:00  INFO 12212 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-12-19T10:45:02.206+02:00  WARN 12212 --- [myproject-hw] [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'username' for method parameter type String is not present]
-2024-12-19T10:45:20.564+02:00  WARN 12212 --- [myproject-hw] [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'username' for method parameter type String is not present]
-2024-12-19T10:46:18.674+02:00  WARN 12212 --- [myproject-hw] [http-nio-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'username' for method parameter type String is not present]
-2024-12-19T11:14:44.340+02:00  INFO 12212 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T11:14:44.351+02:00  INFO 12212 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T11:14:49.337+02:00  INFO 13640 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 13640 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T11:14:49.339+02:00  INFO 13640 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T11:14:50.392+02:00  INFO 13640 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T11:14:50.411+02:00  INFO 13640 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T11:14:50.411+02:00  INFO 13640 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T11:14:50.485+02:00  INFO 13640 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T11:14:50.486+02:00  INFO 13640 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1091 ms
-2024-12-19T11:14:50.655+02:00  WARN 13640 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Ошибка при загрузке пользователей: Cannot construct instance of `com.example.model.User` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 3] (through reference chain: java.util.ArrayList[0])
-2024-12-19T11:14:50.663+02:00  INFO 13640 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T11:14:50.994+02:00  INFO 13640 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T11:14:51.004+02:00  INFO 13640 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.173 seconds (process running for 2.571)
-2024-12-19T11:14:57.545+02:00  INFO 13640 --- [myproject-hw] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T11:14:57.545+02:00  INFO 13640 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T11:14:57.546+02:00  INFO 13640 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-12-19T11:15:01.575+02:00  INFO 13640 --- [myproject-hw] [http-nio-8080-exec-3] com.example.controllers.TaskController   : Получен запрос на создание задачи: Task(id=null, name=name 3Task, description=Description 3 task, status=NEW status 3, username=vovan, createdAt=null, updatedAt=null)
-2024-12-19T11:15:01.595+02:00  INFO 13640 --- [myproject-hw] [http-nio-8080-exec-3] com.example.datasource.FileDataSource    : Задачи успешно сохранены в файл.
-2024-12-19T11:15:01.596+02:00  INFO 13640 --- [myproject-hw] [http-nio-8080-exec-3] com.example.datasource.FileDataSource    : Задача 'name 3Task' сохранена.
-2024-12-19T11:15:29.457+02:00  WARN 13640 --- [myproject-hw] [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name]
-2024-12-19T11:15:34.048+02:00  INFO 13640 --- [myproject-hw] [http-nio-8080-exec-6] com.example.controllers.TaskController   : Получен запрос на создание задачи: Task(id=null, name=name 4Task, description=Description 4 task, status=NEW status 4, username=null, createdAt=null, updatedAt=null)
-2024-12-19T11:15:34.049+02:00  INFO 13640 --- [myproject-hw] [http-nio-8080-exec-6] com.example.datasource.FileDataSource    : Задачи успешно сохранены в файл.
-2024-12-19T11:15:34.049+02:00  INFO 13640 --- [myproject-hw] [http-nio-8080-exec-6] com.example.datasource.FileDataSource    : Задача 'name 4Task' сохранена.
-2024-12-19T11:16:22.182+02:00  INFO 13640 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T11:16:22.189+02:00  INFO 13640 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T11:16:24.378+02:00  INFO 13216 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 13216 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T11:16:24.380+02:00  INFO 13216 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T11:16:25.543+02:00  INFO 13216 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T11:16:25.569+02:00  INFO 13216 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T11:16:25.569+02:00  INFO 13216 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T11:16:25.646+02:00  INFO 13216 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T11:16:25.647+02:00  INFO 13216 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1214 ms
-2024-12-19T11:16:25.833+02:00  WARN 13216 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Ошибка при загрузке пользователей: Cannot construct instance of `com.example.model.User` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 3] (through reference chain: java.util.ArrayList[0])
-2024-12-19T11:16:25.841+02:00  INFO 13216 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T11:16:26.159+02:00  INFO 13216 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T11:16:26.169+02:00  INFO 13216 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.349 seconds (process running for 2.858)
-2024-12-19T11:16:29.559+02:00  INFO 13216 --- [myproject-hw] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T11:16:29.559+02:00  INFO 13216 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T11:16:29.560+02:00  INFO 13216 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2024-12-19T11:16:29.606+02:00  INFO 13216 --- [myproject-hw] [http-nio-8080-exec-1] com.example.controllers.TaskController   : Получен запрос на создание задачи: Task(id=null, name=name 4Task, description=Description 4 task, status=NEW status 4, username=null, createdAt=null, updatedAt=null)
-2024-12-19T11:16:29.624+02:00  INFO 13216 --- [myproject-hw] [http-nio-8080-exec-1] com.example.datasource.FileDataSource    : Задачи успешно сохранены в файл.
-2024-12-19T11:16:29.624+02:00  INFO 13216 --- [myproject-hw] [http-nio-8080-exec-1] com.example.datasource.FileDataSource    : Задача 'name 4Task' сохранена.
-2024-12-19T11:18:22.706+02:00  INFO 13216 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T11:18:22.716+02:00  INFO 13216 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T11:18:27.101+02:00  INFO 13736 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 13736 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T11:18:27.104+02:00  INFO 13736 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T11:18:28.139+02:00  INFO 13736 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T11:18:28.158+02:00  INFO 13736 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T11:18:28.158+02:00  INFO 13736 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T11:18:28.223+02:00  INFO 13736 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T11:18:28.223+02:00  INFO 13736 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1066 ms
-2024-12-19T11:18:28.369+02:00  WARN 13736 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Ошибка при загрузке пользователей: Cannot construct instance of `com.example.model.User` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 3] (through reference chain: java.util.ArrayList[0])
-2024-12-19T11:18:28.377+02:00  INFO 13736 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T11:18:28.712+02:00  INFO 13736 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T11:18:28.721+02:00  INFO 13736 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.124 seconds (process running for 2.52)
-2024-12-19T11:19:00.460+02:00  INFO 13736 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T11:19:00.466+02:00  INFO 13736 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T11:19:04.144+02:00  INFO 7612 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 7612 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T11:19:04.147+02:00  INFO 7612 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T11:19:05.203+02:00  INFO 7612 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T11:19:05.222+02:00  INFO 7612 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T11:19:05.222+02:00  INFO 7612 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T11:19:05.289+02:00  INFO 7612 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T11:19:05.290+02:00  INFO 7612 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1084 ms
-2024-12-19T11:19:05.434+02:00  WARN 7612 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Ошибка при загрузке пользователей: Cannot construct instance of `com.example.model.User` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 3] (through reference chain: java.util.ArrayList[0])
-2024-12-19T11:19:05.443+02:00  INFO 7612 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T11:19:05.777+02:00  INFO 7612 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T11:19:05.787+02:00  INFO 7612 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.137 seconds (process running for 2.547)
-2024-12-19T11:31:06.026+02:00  INFO 7612 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T11:31:06.031+02:00  INFO 7612 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T11:31:09.890+02:00  INFO 2448 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 2448 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T11:31:09.893+02:00  INFO 2448 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T11:31:11.021+02:00  INFO 2448 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T11:31:11.039+02:00  INFO 2448 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T11:31:11.040+02:00  INFO 2448 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T11:31:11.105+02:00  INFO 2448 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T11:31:11.106+02:00  INFO 2448 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1153 ms
-2024-12-19T11:31:11.261+02:00  WARN 2448 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Ошибка при загрузке пользователей: Cannot construct instance of `com.example.model.User` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 3] (through reference chain: java.util.ArrayList[0])
-2024-12-19T11:31:11.271+02:00  INFO 2448 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T11:31:11.624+02:00  INFO 2448 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T11:31:11.633+02:00  INFO 2448 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.251 seconds (process running for 2.656)
-2024-12-19T11:40:27.881+02:00  INFO 2448 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T11:40:27.889+02:00  INFO 2448 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T11:41:11.971+02:00  INFO 13176 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 13176 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T11:41:11.974+02:00  INFO 13176 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T11:41:12.993+02:00  INFO 13176 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T11:41:13.010+02:00  INFO 13176 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T11:41:13.011+02:00  INFO 13176 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T11:41:13.072+02:00  INFO 13176 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T11:41:13.073+02:00  INFO 13176 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1042 ms
-2024-12-19T11:41:13.213+02:00  WARN 13176 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Ошибка при загрузке пользователей: Cannot construct instance of `com.example.model.User` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 3] (through reference chain: java.util.ArrayList[0])
-2024-12-19T11:41:13.223+02:00  INFO 13176 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T11:41:13.568+02:00  INFO 13176 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T11:41:13.578+02:00  INFO 13176 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.112 seconds (process running for 2.518)
-2024-12-19T15:23:23.265+02:00  INFO 13176 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T15:23:23.271+02:00  INFO 13176 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T15:23:36.795+02:00  INFO 1152 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 1152 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T15:23:36.797+02:00  INFO 1152 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T15:23:37.883+02:00  INFO 1152 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T15:23:37.900+02:00  INFO 1152 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T15:23:37.901+02:00  INFO 1152 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T15:23:37.963+02:00  INFO 1152 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T15:23:37.964+02:00  INFO 1152 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1102 ms
-2024-12-19T15:23:38.092+02:00  WARN 1152 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Ошибка при загрузке пользователей: Conflicting property-based creators: already had explicit creator [constructor for `com.example.model.User` (3 args), annotations: {interface com.fasterxml.jackson.annotation.JsonCreator=@com.fasterxml.jackson.annotation.JsonCreator(mode=DEFAULT)}, encountered another: [constructor for `com.example.model.User` (2 args), annotations: {interface com.fasterxml.jackson.annotation.JsonCreator=@com.fasterxml.jackson.annotation.JsonCreator(mode=DEFAULT)}
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 1]
-2024-12-19T15:23:38.119+02:00  INFO 1152 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T15:23:38.454+02:00  INFO 1152 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T15:23:38.471+02:00  INFO 1152 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.199 seconds (process running for 2.677)
-2024-12-19T15:24:33.916+02:00  INFO 1152 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T15:24:33.925+02:00  INFO 1152 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T15:24:38.994+02:00  INFO 1028 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 1028 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T15:24:38.996+02:00  INFO 1028 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T15:24:40.047+02:00  INFO 1028 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T15:24:40.063+02:00  INFO 1028 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T15:24:40.063+02:00  INFO 1028 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T15:24:40.123+02:00  INFO 1028 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T15:24:40.124+02:00  INFO 1028 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1057 ms
-2024-12-19T15:24:40.288+02:00  INFO 1028 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Пользователи успешно загружены из файла.
-2024-12-19T15:24:40.296+02:00  INFO 1028 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T15:24:40.635+02:00  INFO 1028 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T15:24:40.645+02:00  INFO 1028 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.164 seconds (process running for 2.572)
-2024-12-19T15:24:49.403+02:00  INFO 1028 --- [myproject-hw] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T15:24:49.403+02:00  INFO 1028 --- [myproject-hw] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T15:24:49.404+02:00  INFO 1028 --- [myproject-hw] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2024-12-19T15:25:15.636+02:00  INFO 1028 --- [myproject-hw] [http-nio-8080-exec-5] com.example.controllers.TaskController   : Получен запрос на создание задачи: TaskDTO(id=null, name=name 4Task, description=Description 4 task, status=NEW status 4, username=vovan, password=null)
-2024-12-19T15:25:15.651+02:00  INFO 1028 --- [myproject-hw] [http-nio-8080-exec-5] com.example.datasource.FileDataSource    : Задачи успешно сохранены в файл.
-2024-12-19T15:25:15.652+02:00  INFO 1028 --- [myproject-hw] [http-nio-8080-exec-5] com.example.datasource.FileDataSource    : Задача 'name 4Task' сохранена.
-2024-12-19T15:26:28.333+02:00  INFO 1028 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T15:26:28.345+02:00  INFO 1028 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T15:26:32.121+02:00  INFO 11800 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 11800 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T15:26:32.123+02:00  INFO 11800 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "file"
-2024-12-19T15:26:33.237+02:00  INFO 11800 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T15:26:33.266+02:00  INFO 11800 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T15:26:33.266+02:00  INFO 11800 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T15:26:33.371+02:00  INFO 11800 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T15:26:33.372+02:00  INFO 11800 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1195 ms
-2024-12-19T15:26:33.545+02:00  INFO 11800 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Пользователи успешно загружены из файла.
-2024-12-19T15:26:33.553+02:00  INFO 11800 --- [myproject-hw] [main] com.example.datasource.FileDataSource    : Задачи успешно загружены из файла.
-2024-12-19T15:26:33.918+02:00  INFO 11800 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T15:26:33.927+02:00  INFO 11800 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.322 seconds (process running for 2.725)
-2024-12-19T15:27:12.502+02:00  INFO 11800 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T15:27:12.508+02:00  INFO 11800 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T15:28:35.277+02:00  INFO 8616 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 8616 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T15:28:35.279+02:00  INFO 8616 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
-2024-12-19T15:28:36.377+02:00  INFO 8616 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T15:28:36.399+02:00  INFO 8616 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T15:28:36.400+02:00  INFO 8616 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T15:28:36.470+02:00  INFO 8616 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T15:28:36.471+02:00  INFO 8616 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1128 ms
-2024-12-19T15:28:37.135+02:00  INFO 8616 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T15:28:37.144+02:00  INFO 8616 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.383 seconds (process running for 2.789)
-2024-12-19T15:28:40.457+02:00  INFO 8616 --- [myproject-hw] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T15:28:40.457+02:00  INFO 8616 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T15:28:40.458+02:00  INFO 8616 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-12-19T15:29:13.363+02:00  INFO 8616 --- [myproject-hw] [http-nio-8080-exec-7] com.example.controllers.TaskController   : Получен запрос на создание задачи: TaskDTO(id=null, name=name 4Task, description=Description 4 task, status=NEW status 4, username=vovan, password=null)
-2024-12-19T15:29:45.800+02:00  INFO 8616 --- [myproject-hw] [http-nio-8080-exec-9] com.example.controllers.TaskController   : Получен запрос на создание задачи: TaskDTO(id=null, name=name 5Task, description=Description 5 task, status=NEW status 2, username=vovan, password=null)
-2024-12-19T15:32:18.776+02:00  INFO 8616 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T15:32:18.783+02:00  INFO 8616 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T15:32:22.828+02:00  INFO 14440 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 14440 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T15:32:22.831+02:00  INFO 14440 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
-2024-12-19T15:32:23.886+02:00  INFO 14440 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T15:32:23.904+02:00  INFO 14440 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T15:32:23.904+02:00  INFO 14440 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T15:32:23.966+02:00  INFO 14440 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T15:32:23.967+02:00  INFO 14440 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1084 ms
-2024-12-19T15:32:24.644+02:00  INFO 14440 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T15:32:24.654+02:00  INFO 14440 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.336 seconds (process running for 2.735)
-2024-12-19T15:33:37.016+02:00  INFO 14440 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T15:33:37.022+02:00  INFO 14440 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T15:33:41.243+02:00  INFO 3828 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 3828 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T15:33:41.246+02:00  INFO 3828 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
-2024-12-19T15:33:42.298+02:00  INFO 3828 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T15:33:42.315+02:00  INFO 3828 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T15:33:42.315+02:00  INFO 3828 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T15:33:42.375+02:00  INFO 3828 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T15:33:42.375+02:00  INFO 3828 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1071 ms
-2024-12-19T15:33:43.046+02:00  INFO 3828 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T15:33:43.056+02:00  INFO 3828 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.32 seconds (process running for 2.719)
-2024-12-19T15:35:04.711+02:00  INFO 3828 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T15:35:04.719+02:00  INFO 3828 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T15:35:08.693+02:00  INFO 412 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 412 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T15:35:08.696+02:00  INFO 412 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
-2024-12-19T15:35:09.776+02:00  INFO 412 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T15:35:09.794+02:00  INFO 412 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T15:35:09.795+02:00  INFO 412 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T15:35:09.860+02:00  INFO 412 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T15:35:09.861+02:00  INFO 412 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1108 ms
-2024-12-19T15:35:10.486+02:00  INFO 412 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T15:35:10.495+02:00  INFO 412 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.301 seconds (process running for 2.765)
-2024-12-19T15:35:15.423+02:00  INFO 412 --- [myproject-hw] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T15:35:15.423+02:00  INFO 412 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T15:35:15.424+02:00  INFO 412 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-12-19T15:35:23.454+02:00  INFO 412 --- [myproject-hw] [http-nio-8080-exec-4] com.example.controllers.TaskController   : Получен запрос на создание задачи: TaskDTO(id=null, name=name 5Task, description=Description 5 task, status=NEW status 2, username=vovan, password=null)
-2024-12-19T15:36:13.759+02:00  INFO 412 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T15:36:13.765+02:00  INFO 412 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T15:36:18.152+02:00  INFO 11856 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 11856 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T15:36:18.154+02:00  INFO 11856 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
-2024-12-19T15:36:19.210+02:00  INFO 11856 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T15:36:19.227+02:00  INFO 11856 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T15:36:19.227+02:00  INFO 11856 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T15:36:19.289+02:00  INFO 11856 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T15:36:19.290+02:00  INFO 11856 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1071 ms
-2024-12-19T15:36:19.929+02:00  INFO 11856 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T15:36:19.938+02:00  INFO 11856 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.287 seconds (process running for 2.691)
-2024-12-19T15:36:26.851+02:00  INFO 11856 --- [myproject-hw] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T15:36:26.852+02:00  INFO 11856 --- [myproject-hw] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T15:36:26.853+02:00  INFO 11856 --- [myproject-hw] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-12-19T15:36:29.502+02:00  INFO 11856 --- [myproject-hw] [http-nio-8080-exec-3] com.example.controllers.TaskController   : Получен запрос на создание задачи: TaskDTO(id=null, name=name 5Task, description=Description 5 task, status=NEW status 2, username=vovan, password=null)
-2024-12-19T15:39:42.103+02:00  INFO 11856 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T15:39:42.110+02:00  INFO 11856 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T15:39:46.092+02:00  INFO 10452 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 10452 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T15:39:46.095+02:00  INFO 10452 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
-2024-12-19T15:39:47.205+02:00  INFO 10452 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T15:39:47.223+02:00  INFO 10452 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T15:39:47.223+02:00  INFO 10452 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T15:39:47.286+02:00  INFO 10452 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T15:39:47.287+02:00  INFO 10452 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1134 ms
-2024-12-19T15:39:47.878+02:00  INFO 10452 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T15:39:47.888+02:00  INFO 10452 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.327 seconds (process running for 2.721)
-2024-12-19T15:39:52.791+02:00  INFO 10452 --- [myproject-hw] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T15:39:52.792+02:00  INFO 10452 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T15:39:52.793+02:00  INFO 10452 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-12-19T15:40:00.179+02:00  INFO 10452 --- [myproject-hw] [http-nio-8080-exec-4] com.example.controllers.TaskController   : Получен запрос на создание задачи: TaskDTO(id=null, name=name 5Task, description=Description 5 task, status=NEW status 2, username=vovan, password=null)
-2024-12-19T15:40:00.187+02:00  INFO 10452 --- [myproject-hw] [http-nio-8080-exec-4] com.example.datasource.H2DataSource      : Задача сохранена: name 5Task
-2024-12-19T15:40:23.305+02:00  INFO 10452 --- [myproject-hw] [http-nio-8080-exec-6] com.example.controllers.TaskController   : Получен запрос на создание задачи: TaskDTO(id=null, name=name 8Task, description=Description 8 task, status=NEW status 8, username=vovan, password=null)
-2024-12-19T15:40:23.307+02:00  INFO 10452 --- [myproject-hw] [http-nio-8080-exec-6] com.example.datasource.H2DataSource      : Задача сохранена: name 8Task
-2024-12-19T15:44:44.275+02:00  INFO 10452 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T15:44:44.281+02:00  INFO 10452 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T15:44:48.373+02:00  INFO 12112 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 12112 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T15:44:48.377+02:00  INFO 12112 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
-2024-12-19T15:44:49.482+02:00  INFO 12112 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T15:44:49.511+02:00  INFO 12112 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T15:44:49.512+02:00  INFO 12112 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T15:44:49.577+02:00  INFO 12112 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T15:44:49.577+02:00  INFO 12112 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1143 ms
-2024-12-19T15:44:50.196+02:00  INFO 12112 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T15:44:50.205+02:00  INFO 12112 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.341 seconds (process running for 2.752)
-2024-12-19T15:44:55.433+02:00  INFO 12112 --- [myproject-hw] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T15:44:55.433+02:00  INFO 12112 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T15:44:55.434+02:00  INFO 12112 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-12-19T15:44:57.752+02:00  INFO 12112 --- [myproject-hw] [http-nio-8080-exec-4] com.example.controllers.TaskController   : Получен запрос на создание задачи: TaskDTO(id=null, name=name 8Task, description=Description 8 task, status=NEW status 8, username=vovan, password=null)
-2024-12-19T15:44:57.761+02:00  INFO 12112 --- [myproject-hw] [http-nio-8080-exec-4] com.example.datasource.H2DataSource      : Задача сохранена: name 8Task
-2024-12-19T15:45:15.521+02:00  WARN 12112 --- [myproject-hw] [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name]
-2024-12-19T15:45:31.302+02:00  INFO 12112 --- [myproject-hw] [http-nio-8080-exec-9] com.example.controllers.TaskController   : Получен запрос на создание задачи: TaskDTO(id=null, name=name 8Task, description=Description 8 task, status=NEW status 8, username=vovan, password=null)
-2024-12-19T15:45:31.304+02:00  INFO 12112 --- [myproject-hw] [http-nio-8080-exec-9] com.example.datasource.H2DataSource      : Задача сохранена: name 8Task
-2024-12-19T15:46:05.797+02:00  INFO 12112 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T15:46:05.802+02:00  INFO 12112 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T15:46:10.209+02:00  INFO 6500 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 6500 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T15:46:10.212+02:00  INFO 6500 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
-2024-12-19T15:46:11.305+02:00  INFO 6500 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T15:46:11.327+02:00  INFO 6500 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T15:46:11.328+02:00  INFO 6500 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T15:46:11.399+02:00  INFO 6500 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T15:46:11.400+02:00  INFO 6500 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1126 ms
-2024-12-19T15:46:12.022+02:00  INFO 6500 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T15:46:12.032+02:00  INFO 6500 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.338 seconds (process running for 2.743)
-2024-12-19T15:46:21.019+02:00  INFO 6500 --- [myproject-hw] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-19T15:46:21.019+02:00  INFO 6500 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-19T15:46:21.020+02:00  INFO 6500 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-12-19T15:46:28.623+02:00  INFO 6500 --- [myproject-hw] [http-nio-8080-exec-4] com.example.controllers.TaskController   : Получен запрос на создание задачи: TaskDTO(id=null, name=name 8Task, description=Description 8 task, status=NEW status 8, username=vovan, password=null)
-2024-12-19T15:46:28.629+02:00  INFO 6500 --- [myproject-hw] [http-nio-8080-exec-4] com.example.datasource.H2DataSource      : Задача сохранена: name 8Task
-2024-12-19T15:49:51.024+02:00  WARN 6500 --- [myproject-hw] [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('1' (code 49)): was expecting a colon to separate field name and value]
-2024-12-19T15:50:28.457+02:00  INFO 6500 --- [myproject-hw] [http-nio-8080-exec-3] com.example.controllers.TaskController   : Регистрация пользователя: UserDTO(username=vova, password=12345)
-2024-12-19T15:50:28.459+02:00  INFO 6500 --- [myproject-hw] [http-nio-8080-exec-3] com.example.controllers.TaskController   : Пользователь зарегистрирован: User(id=1734616228457, username=vova, password=12345)
-2024-12-19T15:50:47.180+02:00  INFO 6500 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T15:50:47.185+02:00  INFO 6500 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-12-19T15:50:52.624+02:00  INFO 5768 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 5768 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
-2024-12-19T15:50:52.627+02:00  INFO 5768 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
-2024-12-19T15:50:53.742+02:00  INFO 5768 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-12-19T15:50:53.760+02:00  INFO 5768 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-19T15:50:53.761+02:00  INFO 5768 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-19T15:50:53.826+02:00  INFO 5768 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-19T15:50:53.828+02:00  INFO 5768 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1147 ms
-2024-12-19T15:50:54.531+02:00  INFO 5768 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-12-19T15:50:54.542+02:00  INFO 5768 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.459 seconds (process running for 2.866)
-2024-12-19T15:56:08.654+02:00  INFO 5768 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-12-19T15:56:08.664+02:00  INFO 5768 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-21T17:25:56.749+02:00  INFO 872 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 872 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
+2024-12-21T17:25:56.766+02:00  INFO 872 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
+2024-12-21T17:25:58.338+02:00  INFO 872 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-21T17:25:58.355+02:00  INFO 872 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-21T17:25:58.356+02:00  INFO 872 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-21T17:25:58.419+02:00  INFO 872 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-21T17:25:58.420+02:00  INFO 872 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1530 ms
+2024-12-21T17:25:59.068+02:00  INFO 872 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-21T17:25:59.078+02:00  INFO 872 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.944 seconds (process running for 3.657)
+2024-12-21T17:27:08.035+02:00  INFO 872 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-21T17:27:08.041+02:00  INFO 872 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-21T17:27:13.112+02:00  INFO 3032 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 3032 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
+2024-12-21T17:27:13.114+02:00  INFO 3032 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
+2024-12-21T17:27:14.452+02:00  INFO 3032 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-21T17:27:14.482+02:00  INFO 3032 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-21T17:27:14.482+02:00  INFO 3032 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-21T17:27:14.546+02:00  INFO 3032 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-21T17:27:14.547+02:00  INFO 3032 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1335 ms
+2024-12-21T17:27:15.163+02:00  INFO 3032 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-21T17:27:15.174+02:00  INFO 3032 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.629 seconds (process running for 3.046)
+2024-12-21T17:34:27.765+02:00  INFO 3032 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-21T17:34:27.773+02:00  INFO 3032 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-21T17:39:36.755+02:00  INFO 9260 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 9260 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
+2024-12-21T17:39:36.757+02:00  INFO 9260 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
+2024-12-21T17:39:37.854+02:00  INFO 9260 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-21T17:39:37.873+02:00  INFO 9260 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-21T17:39:37.874+02:00  INFO 9260 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-21T17:39:37.940+02:00  INFO 9260 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-21T17:39:37.940+02:00  INFO 9260 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1131 ms
+2024-12-21T17:39:38.567+02:00  INFO 9260 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-21T17:39:38.583+02:00  INFO 9260 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.344 seconds (process running for 2.752)
+2024-12-21T17:48:16.637+02:00  INFO 9260 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-21T17:48:16.643+02:00  INFO 9260 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-21T17:48:20.156+02:00  INFO 8204 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 8204 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
+2024-12-21T17:48:20.159+02:00  INFO 8204 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
+2024-12-21T17:48:21.235+02:00  INFO 8204 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-21T17:48:21.254+02:00  INFO 8204 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-21T17:48:21.255+02:00  INFO 8204 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-21T17:48:21.385+02:00  INFO 8204 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-21T17:48:21.385+02:00  INFO 8204 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1169 ms
+2024-12-21T17:48:22.070+02:00  INFO 8204 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-21T17:48:22.079+02:00  INFO 8204 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.436 seconds (process running for 2.835)
+2024-12-21T17:52:33.099+02:00  INFO 8204 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-21T17:52:33.107+02:00  INFO 8204 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-21T17:52:37.585+02:00  INFO 8912 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 8912 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
+2024-12-21T17:52:37.588+02:00  INFO 8912 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
+2024-12-21T17:52:38.659+02:00  INFO 8912 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-21T17:52:38.679+02:00  INFO 8912 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-21T17:52:38.679+02:00  INFO 8912 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-21T17:52:38.746+02:00  INFO 8912 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-21T17:52:38.747+02:00  INFO 8912 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1109 ms
+2024-12-21T17:52:39.378+02:00  INFO 8912 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-21T17:52:39.389+02:00  INFO 8912 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.315 seconds (process running for 2.714)
+2024-12-21T17:53:38.566+02:00  INFO 8912 --- [myproject-hw] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-21T17:53:38.567+02:00  INFO 8912 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-21T17:53:38.568+02:00  INFO 8912 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-21T17:53:48.785+02:00  WARN 8912 --- [myproject-hw] [http-nio-8080-exec-3] com.example.service.UserService          : Пользователь с именем 'vovan' не найден или пароль неверный.
+2024-12-21T17:54:12.818+02:00  INFO 8912 --- [myproject-hw] [http-nio-8080-exec-5] com.example.controllers.TaskController   : Получен запрос на создание задачи: TaskDTO(id=null, name=name 8Task, description=Description 8 task, status=NEW status 8, username=vovan, password=null)
+2024-12-21T17:54:12.822+02:00  INFO 8912 --- [myproject-hw] [http-nio-8080-exec-5] com.example.datasource.H2DataSource      : Задача сохранена: name 8Task
+2024-12-21T18:05:35.144+02:00  INFO 8912 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-21T18:05:35.149+02:00  INFO 8912 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-21T18:23:46.937+02:00  INFO 8240 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 8240 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
+2024-12-21T18:23:46.939+02:00  INFO 8240 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
+2024-12-21T18:23:48.054+02:00  INFO 8240 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-21T18:23:48.072+02:00  INFO 8240 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-21T18:23:48.073+02:00  INFO 8240 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-21T18:23:48.134+02:00  INFO 8240 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-21T18:23:48.134+02:00  INFO 8240 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1141 ms
+2024-12-21T18:23:48.723+02:00  INFO 8240 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-21T18:23:48.735+02:00  INFO 8240 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.349 seconds (process running for 2.87)
+2024-12-21T18:23:54.424+02:00  INFO 8240 --- [myproject-hw] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-21T18:23:54.425+02:00  INFO 8240 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-21T18:23:54.426+02:00  INFO 8240 --- [myproject-hw] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-21T18:24:10.498+02:00  WARN 8240 --- [myproject-hw] [http-nio-8080-exec-3] com.example.service.AuthService          : Failed login attempt for username 'vova'.
+2024-12-21T18:24:15.010+02:00  INFO 8240 --- [myproject-hw] [http-nio-8080-exec-4] com.example.service.AuthService          : User 'vova' successfully logged in.
+2024-12-21T18:24:22.806+02:00  INFO 8240 --- [myproject-hw] [http-nio-8080-exec-5] com.example.controllers.TaskController   : Получен запрос на создание задачи: TaskDTO(id=null, name=name 8Task, description=Description 8 task, status=NEW status 8, username=vovan, password=null)
+2024-12-21T18:24:22.813+02:00  INFO 8240 --- [myproject-hw] [http-nio-8080-exec-5] com.example.datasource.H2DataSource      : Задача сохранена: name 8Task
+2024-12-21T18:25:05.733+02:00  INFO 8240 --- [myproject-hw] [http-nio-8080-exec-7] com.example.service.AuthService          : User logged out.
+2024-12-21T18:26:24.106+02:00  WARN 8240 --- [myproject-hw] [http-nio-8080-exec-10] com.example.service.AuthService          : Failed login attempt for username 'vova2'.
+2024-12-21T18:32:44.389+02:00  INFO 8240 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-21T18:32:44.395+02:00  INFO 8240 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-21T18:32:48.414+02:00  INFO 13028 --- [myproject-hw] [main] com.example.TodoNewApplication           : Starting TodoNewApplication using Java 21.0.1 with PID 13028 (D:\Java\todoNew-master\target\classes started by User in D:\Java\todoNew-master)
+2024-12-21T18:32:48.416+02:00  INFO 13028 --- [myproject-hw] [main] com.example.TodoNewApplication           : The following 1 profile is active: "h2"
+2024-12-21T18:32:49.572+02:00  INFO 13028 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-21T18:32:49.589+02:00  INFO 13028 --- [myproject-hw] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-21T18:32:49.589+02:00  INFO 13028 --- [myproject-hw] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-21T18:32:49.650+02:00  INFO 13028 --- [myproject-hw] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-21T18:32:49.651+02:00  INFO 13028 --- [myproject-hw] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1170 ms
+2024-12-21T18:32:50.276+02:00  INFO 13028 --- [myproject-hw] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-21T18:32:50.293+02:00  INFO 13028 --- [myproject-hw] [main] com.example.TodoNewApplication           : Started TodoNewApplication in 2.382 seconds (process running for 2.788)
+2024-12-21T22:59:13.536+02:00  INFO 13028 --- [myproject-hw] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-21T22:59:13.544+02:00  INFO 13028 --- [myproject-hw] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete

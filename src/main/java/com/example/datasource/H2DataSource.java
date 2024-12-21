@@ -3,22 +3,20 @@ package com.example.datasource;
 
 import com.example.model.Task;
 import com.example.model.User;
+import lombok.extern.slf4j.Slf4j;
 import org.h2.jdbcx.JdbcDataSource;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
+@Slf4j
 @Component("h2DataSource")
 @Profile("h2")
 public class H2DataSource implements DataSource {
-    private static final Logger logger = LoggerFactory.getLogger(H2DataSource.class);
+
     private final JdbcDataSource dataSource;
     public H2DataSource() {
         this.dataSource = new JdbcDataSource();
@@ -90,9 +88,9 @@ public class H2DataSource implements DataSource {
             stmt.setString(6, task.getUpdatedAt());
             stmt.setString(7, task.getUsername());
             stmt.executeUpdate();
-            logger.info("Задача сохранена: {}", task.getName());
+            log.info("Задача сохранена: {}", task.getName());
         } catch (SQLException e) {
-            logger.error("Ошибка при сохранении задачи: {}", e.getMessage(), e);
+            log.error("Ошибка при сохранении задачи: {}", e.getMessage(), e);
         }
     }
 
@@ -116,7 +114,7 @@ public class H2DataSource implements DataSource {
                 tasks.add(task);
             }
         } catch (SQLException e) {
-            logger.error("Ошибка при получении задач: {}", e.getMessage(), e);
+            log.error("Ошибка при получении задач: {}", e.getMessage(), e);
         }
         return tasks;
     }
